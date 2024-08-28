@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<lcproj projname="yshx" appname="yshx" autorotate="true" is_acc_mode="0" localmode="true" pkgname="ys.com" rgbmode="false" targetsize="0x0">
+    <lua entry="yshx.lua">
+        <file name="基础任务.lua"/>
+        <file name="出战任务.lua"/>
+        <file name="武斗会任务.lua"/>
+        <file name="商店任务.lua"/>
+        <file name="密室任务.lua"/>
+        <file name="召唤任务.lua"/>
+        <file name="新号注册任务.lua"/>
+        <file name="基础方法.lua"/>
+        <file name="通用方法.lua"/>
+        <file name="任务列表.lua"/>
+        <file name="统计方法.lua"/>
+        <file name="数据库操作.lua"/>
+    </lua>
+    <rc entry="yshx.rc"/>
+    <ui entry="yshx.ui"/>
+    <luae entry="">
+        <file name="armeabi-v7a"/>
+        <file name="x86"/>
+    </luae>
+</lcproj>
