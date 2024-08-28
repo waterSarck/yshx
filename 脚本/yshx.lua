@@ -70,7 +70,8 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 	while actionType.exit do
 		stepNum = stepNum +1
 		writeLogFile("*********第",stepNum,"次,任务流程********")
-		local userCount = getFileLineNum(userInfoFilePath)
+		--local userCount = getFileLineNum(userInfoFilePath)
+        local userCount = 1
 		
 		writeLogFile("=============")
 		writeLogFile("共计",userCount,"用户")
@@ -79,12 +80,14 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 			for i=startNo,userCount do
 				writeLogFile("----------------------start-任务流程-----------------------")
 				writeLogFile("-------获取登录信息开始")
-				local userInfo = readUserInfoByLineNum(i,userInfoFilePath)
-				local proStr = ""
-				local userName = userInfo[1]
-				local pwd  = userInfo[2]
+				--local userInfo = readUserInfoByLineNum(i,userInfoFilePath)
+				local bestUserInfo = 查询设备最优账号()
+                local proStr = ""
+				local userName = bestUserInfo[1]
+				local pwd  = bestUserInfo[2]
+                local bestUser = userName
 				userNameSt = userName
-				local bestUser = 查询设备最优账号()
+				
 				--战力提升设置
 				if userName =="zlts" then
 					local retZC = 查询设备最次账号()
@@ -366,8 +369,15 @@ end
 --findpic("xsrw密室2")
 
 --新手任务6密室()
+--local bestUser = 查询设备最优账号()
+--local proStr = ""
+--local userName = bestUser[1]
+--local pwd  = bestUser[2]
+--print("bestUser",bestUser)
+--print("userName",userName)
+--print("pwd",pwd)
 main()
-
+--新建账号入库("test20240823","12345")
 --findstr("自动选择")
 --findpic("xsrw密室时御者")
 --tx3()

@@ -54,7 +54,7 @@ function 插入(sqlStr)
 end
 
 function 查询优先级最高账号(mode)
-	local queryUser = "select login_id from yshx.user_data where vx_code = '"..mode.."' and update_sort = (select MIN(update_sort) from yshx.user_data where vx_code = '"..mode.."' and state = '1') "
+	local queryUser = "select login_id,login_pass from yshx.user_data where vx_code = '"..mode.."' and update_sort = (select MIN(update_sort) from yshx.user_data where vx_code = '"..mode.."' and state = '1') "
 	return 查询(queryUser)
 end
 
@@ -94,6 +94,7 @@ function 查询设备最优账号()
 	if #tb >= 1 then
 		user = tb[1].login_id
 		print(user) --打印每一行
+        return {tb[1].login_id,tb[1].login_pass}
 	end
 	return user
 end
@@ -108,4 +109,19 @@ function 查询设备最次账号()
 		return {tb[1].login_id,tb[1].login_pass}
 	end
 	return nil
+end
+
+function 新建账号入库(login_id,login_pass)
+	local nowTime = os.date("%Y-%m-%d %H:%M:%S", os.time())
+	local nowTimeForm = os.date("[%Y-%m-%d %H:%M:%S]", os.time())
+	local nowDate = os.date("%Y%m%d", os.time())
+	local nowTimeSort = os.time()	
+	
+	local mode = getModel()
+	
+	local insertSql = "INSERT INTO yshx.user_data (login_id,login_pass, creat_date,choushu,zuanshi,jinbi,baiquan,huangquan,leve,selltype,state,update_time,update_sort,update_date,vx_code)  VALUES ("
+    insertSql = insertSql.."'"..login_id.."','"..login_pass.."','"..nowDate.."','0','0','0','0','0','0','yyxs','1','"..nowTime.."','"..nowTimeSort.."','"..nowTime.."','ACT' )"	
+	插入(insertSql)
+	--local queryUser = "select login_id,login_pass from yshx.user_data where  update_sort = (select MIN(update_sort) from yshx.user_data where vx_code in (select sys_value from yshx.sys_config where value_name = 'zlts_model') and state = '1') "
+	 --查询(queryUser)
 end
