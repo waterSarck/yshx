@@ -909,9 +909,9 @@ function 领取每日任务奖励(userName)
 	local a=496
 	for i=1,10 do
 		
-		mytap(t,640)--宝箱1位置
+		mytap(a,640)--宝箱1位置
 		sleep(2000)
-		mytap(t,640)--宝箱1位置s
+		mytap(a,640)--宝箱1位置s
 		findpic("ok",true)
 		sleep(2000)
 		a=a+40

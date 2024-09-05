@@ -111,6 +111,22 @@ function 查询设备最次账号()
 	return nil
 end
 
+function 查询账号创建天数(userName)
+
+	local queryCount = "select DATEDIFF(CURDATE(), t.creat_date) as creatCount from yshx.user_data t where t.login_id = '"..userName.."';"
+	print(queryCount)
+    local tb = 查询(queryCount)
+    
+	local creatCount = 0
+	if #tb >= 1 then
+		creatCount = tb[1].creatCount
+		print(creatCount) --打印每一行
+		return creatCount
+	end
+	return 0
+
+end
+
 function 新建账号入库(login_id,login_pass)
 	local nowTime = os.date("%Y-%m-%d %H:%M:%S", os.time())
 	local nowTimeForm = os.date("[%Y-%m-%d %H:%M:%S]", os.time())
@@ -125,3 +141,4 @@ function 新建账号入库(login_id,login_pass)
 	--local queryUser = "select login_id,login_pass from yshx.user_data where  update_sort = (select MIN(update_sort) from yshx.user_data where vx_code in (select sys_value from yshx.sys_config where value_name = 'zlts_model') and state = '1') "
 	 --查询(queryUser)
 end
+

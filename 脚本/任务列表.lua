@@ -137,7 +137,7 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
 		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-fhxd-jq1","hd-fhxd-jq2","hdstager1","hd-fhxd-jq3","hd-fhxd-jq4","hdstager2","hd-fhxd-jq5","hd-fhxd-jq6"},10)
+		{"hd-htzc-jq1","hdstager1","hd-htzc-jq2","hd-htzc-jq3","hd-htzc-jq4","hd-htzc-jq5","hd-htzc-jq6","hdstager2","hd-htzc-jq7","hd-htzc-jq8"},10)
 		
 	end
 end
@@ -372,11 +372,11 @@ function 领取每日任务奖励任务()
 	
 end
 
-function 领取新手任务奖励任务()
+function 领取新手任务奖励任务(activeList,userList)
 	
 	if 是否进入主页(1)   then
 		writeLogFile("*******开始处理任务19（领取每日任务奖励）")
-		领取新手任务奖励()
+		领取新手任务奖励(userList)
 		--扫荡活动("异界狂想曲","布魔之章")
 	end
 	

@@ -745,16 +745,20 @@ function 绑定账号(userInfo)
 	
 end
 
-function 领取新手任务奖励()
+function 领取新手任务奖励(userList)
 	findpic("xsrw-新生活动",true)
 	sleep(4000)
 	findpic("xsrw-新生活动",true)
 	sleep(4000)
+    local createCount = 查询账号创建天数(userList.userName)
 	if findStrSub("任务",true) then
 		sleep(4000)
 		local stagerName = {"第1天","第2天","第3天","第4天","第5天","第6天","第7天"}
-		
-		for i=1,#stagerName do
+		local loopCount = math.tointeger(createCount)
+        if loopCount>#stagerName then
+        	loopCount = #stagerName
+        end
+		for i=1,loopCount do
 			findStrSub(stagerName[i],true)
 			findstr("全部领取",true)
 			sleep(4000)

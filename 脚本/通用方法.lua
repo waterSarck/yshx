@@ -316,13 +316,14 @@ function 延时重启脚本()
 	local current_date = os.date("*t", now)
 	
 	local hour = current_date.hour
+    local second_c = math.random(1,9)
 	--print("开始定时点重启脚本")
 	if  hour<11 then
-		sec = 计算秒数(11,0)*1000
+		sec = 计算秒数(11,0)*1000+second_c*10000
 		writeLogFile("当前时间小于11点"..sec.."毫秒后重启脚本")
 		setTimer(重启脚本,sec)
 	else
-		sec = 计算秒数(11,1)*1000
+		sec = 计算秒数(11,1)*1000+second_c*10000
 		writeLogFile("当前时间大于11点"..sec.."毫秒后重启脚本")
 		setTimer(重启脚本,sec)
 	end

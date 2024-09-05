@@ -71,7 +71,7 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 		stepNum = stepNum +1
 		writeLogFile("*********第",stepNum,"次,任务流程********")
 		--local userCount = getFileLineNum(userInfoFilePath)
-        local userCount = 1
+		local userCount = 1
 		
 		writeLogFile("=============")
 		writeLogFile("共计",userCount,"用户")
@@ -82,12 +82,13 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 				writeLogFile("-------获取登录信息开始")
 				--local userInfo = readUserInfoByLineNum(i,userInfoFilePath)
 				local bestUserInfo = 查询设备最优账号()
-                local proStr = ""
+				local proStr = ""
 				local userName = bestUserInfo[1]
 				local pwd  = bestUserInfo[2]
-                local bestUser = userName
+				local bestUser = userName
 				userNameSt = userName
-				
+				local userList = {}
+                userList.userName = userName
 				--战力提升设置
 				if userName =="zlts" then
 					local retZC = 查询设备最次账号()
@@ -140,7 +141,7 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 					
 					local actfun =_G[actName]
 					if actfun then
-						actFlag = actfun(activeList)
+						actFlag = actfun(activeList,userList)
 						if actFlag then
 							writeLogFile("执行任务：",actName,"状态：成功")
 							success_action = success_action..","..actName
@@ -226,9 +227,9 @@ function tx2()
 	--推活动剧情本任务(activeList)
 	--推活动积分本任务(activeList)
 	--刷复刻活动商店任务(activeList)
-	推小死斗任务(activeList)
-	--推复刻活动剧情本任务(activeList)
-	--推复刻活动积分本任务(activeList)
+	--推小死斗任务(activeList)
+	推复刻活动剧情本任务(activeList)
+	推复刻活动积分本任务(activeList)
 	--推活动积分本任务(activeList)
 	--刷活动商店任务(activeList)
 	--推复刻活动死斗任务(activeList)
@@ -376,6 +377,13 @@ end
 --print("bestUser",bestUser)
 --print("userName",userName)
 --print("pwd",pwd)
+--延时重启脚本()
+
+--
+--查询账号创建天数(userList.userName)
+--领取每日任务奖励任务()
+
+--领取新手任务奖励任务(aa,userList)
 main()
 --新建账号入库("test20240823","12345")
 --findstr("自动选择")
