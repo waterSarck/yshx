@@ -238,7 +238,50 @@ end
 function 推活动本(actName,chapterName,stagerName,count)
 	print(stagerName[1])
 	while true do
-		if findPicAry(stagerName,true)== false then
+		if findPicAry(stagerName,true)== false  then
+			if findpic(chapterName,true) == false then
+				if findpic(actName,true) == false then
+					if findpic("活动",true) == false then
+						if findpic("出战",true) == false then
+							sleep(2000)
+						end
+						sleep(2000)
+					end
+				else
+					sleep(3000)
+					关闭引导页()
+					sleep(1000)
+					if findpic(chapterName) == false then
+						writeLogFile("账号未解锁该功能")
+						break
+					end
+				end
+			end
+		else
+			sleep(2000)
+			连续推图()
+			break
+		end
+		
+		sleep(2000)
+		count = count -1
+		if count==0 then
+			findpic("取消",true)
+			writeLogFile("战斗失败")
+			break
+		end
+	end
+	
+	领取活动任务奖励()
+	
+	返回主页(5)
+	--你可以拿来做参考
+end
+
+function 推活动本STR(actName,chapterName,stagerName,count)
+	print(stagerName[1])
+	while true do
+		if findStrSubAry(stagerName,true)== false  then
 			if findpic(chapterName,true) == false then
 				if findpic(actName,true) == false then
 					if findpic("活动",true) == false then

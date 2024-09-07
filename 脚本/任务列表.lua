@@ -147,7 +147,7 @@ function 推复刻活动死斗任务(activeList)
 	if 是否进入主页(1)   then
 		writeLogFile("*******开始处理任务（推复刻活动死斗任务）")
 		--推活动本("bsn不死鸟眼泪","bsn秘密研究室",{"bsn-jq1","hdstager1","bsn-jq2","bsn-jq3","hdstager2","hdstager3","hdstager4","hdstager5","bsn-jq4","bsn-jq5","hdstager6","bsn-jq6","bsn-jq7","bsn-jq8"},10)
-		推活动本(activeList.activeFKName,activeList.activeFKSDName,{"bsn-EX1","hdEX2","hdEX3"},10)
+		推活动本STR(activeList.activeFKName,activeList.activeFKSDName,{"EX1","EX2","EX3"},10)
 		--推活动本("hd诸圣前夜","hd古老的传说",{"ws-jq1","ws-jq2","hdstager1","ws-jq3","ws-jq4","ws-jq5","hdstager2","ws-jq6"},10)
 		--推活动本("bsn不死鸟眼泪","bsn秘密研究室",{"ws-jq1","ws-jq2","hdstager1","ws-jq3","ws-jq4","ws-jq5","hdstager2","ws-jq6"},10)
 		--推活动本("hd水岸狂想","hd水岸狂想曲",{"sa-jq1","sa-jq2","sa-jq3","hdstager1","sa-jq4","sa-jq5","hdstager2","sa-jq6","sa-jq7","sa-jq8","sa-jq9",},10)
@@ -557,7 +557,7 @@ end
 
 function 刷复刻活动商店任务(activeList)
 	
-	if 是否进入主页(1) and 是否周几({"2","6"}) then
+	if 是否进入主页(1) and 是否周几({"0","1","6"}) then
 		writeLogFile("*******开始处理任务25（刷复刻活动商店任务）")
 		return 刷活动商店("FK",activeList.activeFKName,1,10)
 	end
