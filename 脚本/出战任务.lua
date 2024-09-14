@@ -474,7 +474,87 @@ function 扫荡资源(actName,chapterName,count)
 	--你可以拿来做参考
 end
 
+function 查找章节(actName,chapterName,stager,count)
+	while true do
+		if findpic(chapterName,true) == false then
+			if findpic(actName,true) == false then
+				if findpic("活动",true) == false then
+					if findpic("出战",true) == false then
+						sleep(2000)
+					end
+					sleep(2000)
+				end
+			else
+				sleep(3000)
+				关闭引导页()
+				sleep(1000)
+				if findpic(chapterName) == false then
+					writeLogFile("账号未解锁该功能")
+					return false
+				end
+			end
+		else
+        writeLogFile("查找章节成功")
+        	return true
+        end
+		sleep(2000)
+		count = count -1
+		if count==0 then
+			findpic("取消",true)
+			writeLogFile("查找章节失败")
+			return false
+		end
+	end
+end
 
+function 扫荡(count)
+	while true do
+		if findpic("ok",true) == false then
+        sleep(2000)
+			if findpic("确认",true) == false then
+            sleep(2000)
+				if findpic("扫荡",true) == false then
+                sleep(2000)
+				else
+                sleep(2000)
+					if findpic("zy次数用完") then
+						writeLogFile("暂无次数扫荡")
+						findpic("确认",true)
+						break
+					end
+					if findpic("保存精力") then
+						writeLogFile("暂无精力扫荡")
+						findpic("取消",true)
+						break
+					end
+				end
+			end
+		else
+			writeLogFile("扫荡成功")
+			break
+		end
+		sleep(2000)
+		count = count -1
+		if count==0 then
+			findpic("取消",true)
+			writeLogFile("扫荡失败")
+			break
+		end
+	end
+end
+function 扫荡复刻活动重构(actName,chapterName,stager,count)
+	if 查找章节(actName,chapterName,stager,count)==true then
+    sleep(2000)
+    	if findStrSubMove(stager,{751,410,1144,410},true) then
+        	扫荡(5)
+        end   
+    end
+	
+	领取活动任务奖励()
+	
+	返回主页(5)
+	--你可以拿来做参考
+end
 --活动名称，章节名称
 function 扫荡复刻活动(actName,chapterName,stager,count)
 	while true do

@@ -157,6 +157,20 @@ function findStrMove(stagerName,mvPos,clickflag)
 	end
 	return findstr(stagerName,clickflag)
 end
+function findStrSubMove(stagerName,mvPos,clickflag)
+	for i=1,3 do
+		if findStrSub(stagerName,false) == false  then
+			swipe(mvPos[1],mvPos[2],mvPos[3],mvPos[4],1000)
+			--swipe(751,410,1144,410,1000)
+			sleep(1000)
+		else
+			sleep(1000)
+			break
+		end
+		sleep(1000)
+	end
+	return findStrSub(stagerName,clickflag)
+end
 --²éÕÒ×Ó×Ö·û´®
 function findStrSub(...)
 	local t = {...}

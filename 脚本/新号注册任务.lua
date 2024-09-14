@@ -327,8 +327,8 @@ function 新手任务5领奖励()
 			sleep(1000)
 			mytap(1216,29)--返回主页
 		end
-        返回主页(3)
-        sleep(5000)
+		返回主页(3)
+		sleep(5000)
 	end
 	writeLogFile("--------新手任务5领奖励结束--------")
 end
@@ -341,10 +341,10 @@ function 新手任务6密室()
 		if findstr("伊娜丝",true) then
 			loading(3)
 			密室_关闭引导页(10)
-            sleep(8000)
-            while findpic("xsrw密室时御者",true) do
-            sleep(3000)
-            end
+			sleep(8000)
+			while findpic("xsrw密室时御者",true) do
+				sleep(3000)
+			end
 			--mytap(1048,213)--密室任务
 			sleep(10000)
 			if findstr("自动选择",true)  or findStrSub("自动",true) then
@@ -537,92 +537,91 @@ function 注册账号(userInfo)
 			if findpic("设定",true) == false then
 			end
 			
-		else
-			sleep(3000)
-			loading(5)
-			if findstr("点选表示同意使用者条款",true,123,752,601,867) then
+		end
+		sleep(3000)
+		loading(5)
+		if findstr("点选表示同意使用者条款",true,123,752,601,867) then
+			--if true then
+			sleep(1000)
+			if findstr("下一步",true) then
 				--if true then
-				sleep(1000)
-				if findstr("下一步",true) then
-					--if true then
-					sleep(5000)
-					if findstr("图像验证") == true then
-						move(345,1026,315,374,400)
-						if findpic("xsrw注册新账号",true)  then
-							sleep(1000)
-							move(345,374,315,1026,400)
-							if findstr("注册") == true then
-								if findPicAndClick("xsrw电邮地址",true,150,10)==true then
+				sleep(5000)
+				if findstr("图像验证") == true then
+					move(345,1026,315,374,400)
+					if findpic("xsrw注册新账号",true)  then
+						sleep(1000)
+						move(345,374,315,1026,400)
+						if findstr("注册") == true then
+							if findPicAndClick("xsrw电邮地址",true,150,10)==true then
+								sleep(1000)
+								setIme(true)
+								inputText(userName,true)
+								sleep(1000)
+								if findPicAndClick("xsrw密码",true)==true then
 									sleep(1000)
 									setIme(true)
-									inputText(userName,true)
+									inputText(pwd,true)
 									sleep(1000)
-									if findPicAndClick("xsrw密码",true)==true then
+									if findPicAndClick("xsrw二次密码",true)==true then
 										sleep(1000)
-										setIme(true)
 										inputText(pwd,true)
 										sleep(1000)
-										if findPicAndClick("xsrw二次密码",true)==true then
+										--move(345,374,315,1026,400)
+										if 过滑块验证(10,3)==true then
 											sleep(1000)
-											inputText(pwd,true)
+											move(345,1026,315,374,400)
 											sleep(1000)
-											--move(345,374,315,1026,400)
-											if 过滑块验证(10,3)==true then
-												sleep(1000)
-												move(345,1026,315,374,400)
-												sleep(1000)
-												while findpic("xsrw新号注册",true) == true do
-													while true do
-														local loginFlag = 注册检查()
-														print("注册检查状态",loginFlag)
-														if loginFlag==true then
-															break
-															
-														elseif loginFlag==1 then
-															过滑块验证(10,3)
-															sleep(1000)
-															move(345,1026,315,374,400)
-															sleep(1000)
-															findpic("xsrw新号注册",true)
-														elseif loginFlag==2 then
-															findPicAndClick("xsrw电邮地址",true,150,10)
-															sleep(1000)
-															inputText(userName,true)
-															sleep(1000)
-															sleep(1000)
-															move(345,1026,315,374,400)
-															sleep(1000)
-															findpic("xsrw新号注册",true)
-														elseif loginFlag==3 then
-															findPicAndClick("xsrw密码",true)
-															sleep(1000)
-															inputText(pwd)
-															sleep(1000)
-															sleep(1000)
-															move(345,1026,315,374,400)
-															sleep(1000)
-															findpic("xsrw新号注册",true)
-															
-														elseif loginFlag==5 then
-															findPicAndClick("xsrw二次密码",true)
-															sleep(1000)
-															inputText(pwd,true)
-															sleep(1000)
-															sleep(1000)
-															move(345,1026,315,374,400)
-															sleep(1000)
-															findpic("xsrw新号注册",true)
-														end
+											while findpic("xsrw新号注册",true) == true do
+												while true do
+													local loginFlag = 注册检查()
+													print("注册检查状态",loginFlag)
+													if loginFlag==true then
+														break
+														
+													elseif loginFlag==1 then
+														过滑块验证(10,3)
+														sleep(1000)
+														move(345,1026,315,374,400)
+														sleep(1000)
+														findpic("xsrw新号注册",true)
+													elseif loginFlag==2 then
+														findPicAndClick("xsrw电邮地址",true,150,10)
+														sleep(1000)
+														inputText(userName,true)
+														sleep(1000)
+														sleep(1000)
+														move(345,1026,315,374,400)
+														sleep(1000)
+														findpic("xsrw新号注册",true)
+													elseif loginFlag==3 then
+														findPicAndClick("xsrw密码",true)
+														sleep(1000)
+														inputText(pwd)
+														sleep(1000)
+														sleep(1000)
+														move(345,1026,315,374,400)
+														sleep(1000)
+														findpic("xsrw新号注册",true)
+														
+													elseif loginFlag==5 then
+														findPicAndClick("xsrw二次密码",true)
+														sleep(1000)
+														inputText(pwd,true)
+														sleep(1000)
+														sleep(1000)
+														move(345,1026,315,374,400)
+														sleep(1000)
+														findpic("xsrw新号注册",true)
 													end
-													
-													sleep(2000)
 												end
-												--填写信息检查 信箱未填、密码未填、滑块未到位
-												while findstr("返回",true) == true do
-													sleep(2000)
-												end
-												break
+												
+												sleep(2000)
 											end
+											--填写信息检查 信箱未填、密码未填、滑块未到位
+											while findstr("返回",true) == true do
+												sleep(2000)
+											end
+											break
 										end
 									end
 								end
@@ -632,6 +631,7 @@ function 注册账号(userInfo)
 				end
 			end
 		end
+		
 		
 		counttmp = counttmp -1
 		if counttmp == 0 then
@@ -722,7 +722,7 @@ function 绑定账号(userInfo)
 										writeFile("/mnt/shared/Pictures/newUser.txt",nowDate.."\n",true)
 										writeFile("/mnt/shared/Pictures/newUser.txt",userName.."|"..pwd.."\n",true)
 										新建账号入库(userName,pwd)
-                                        loading(3)
+										loading(3)
 										重启服务()
 										是否启动页(true)
 									elseif findstr("绑定失败") then
@@ -750,14 +750,14 @@ function 领取新手任务奖励(userList)
 	sleep(4000)
 	findpic("xsrw-新生活动",true)
 	sleep(4000)
-    local createCount = 查询账号创建天数(userList.userName)
+	local createCount = 查询账号创建天数(userList.userName)
 	if findStrSub("任务",true) then
 		sleep(4000)
 		local stagerName = {"第1天","第2天","第3天","第4天","第5天","第6天","第7天"}
 		local loopCount = math.tointeger(createCount)
-        if loopCount>#stagerName then
-        	loopCount = #stagerName
-        end
+		if loopCount>#stagerName then
+			loopCount = #stagerName
+		end
 		for i=1,loopCount do
 			findStrSub(stagerName[i],true)
 			findstr("全部领取",true)
