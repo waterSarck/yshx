@@ -139,8 +139,9 @@ function 刷商店(shoopName,goods,count)
 		if findstr("商店",true) then
 			关闭引导页(5)
 			for i=1,3 do
-				if findstr(shoopName,true) == false  then
-					swipe(131,627,131,177,1000)
+				if findStrSub(shoopName,true) == false  then
+					swipe(131,550,131,177,1000)
+                    print("move")
 					sleep(1000)
 				else
 					sleep(1000)

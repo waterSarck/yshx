@@ -432,13 +432,13 @@ end
 --启动页检查 clickflag:是否点击start
 function 是否启动页(clickflag)
 	local clickType = clickflag
-	local picAry = {"启动页-文字","启动页-问号","启动页-小喇叭1","bsn-启动页","启动页-小喇叭","qkl-启动页"}
+	local picAry = {"启动页-文字","启动页-问号","启动页-小喇叭1","bsn-启动页","启动页-小喇叭","qkl-启动页","启动页-小喇叭3"}
 	local PageFlag = findPicAry(picAry,false)
 	if clickType ~= true then
 		clickType = false
 	end
 	
-	if PageFlag then
+	if findStrSubAry({"开始运行","人物仅为架空虚构","21岁以上"}) or PageFlag then
 		if clickType then
 			mytap(647,637)--点击登录press to start
 		end

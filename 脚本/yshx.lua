@@ -88,7 +88,7 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 				local bestUser = userName
 				userNameSt = userName
 				local userList = {}
-                userList.userName = userName
+				userList.userName = userName
 				--战力提升设置
 				if userName =="zlts" then
 					local retZC = 查询设备最次账号()
@@ -232,7 +232,7 @@ function tx2()
 	--推复刻活动积分本任务(activeList)
 	--推活动积分本任务(activeList)
 	--刷活动商店任务(activeList)
-    --扫荡复刻活动任务(activeList)
+	--扫荡复刻活动任务(activeList)
 	--推复刻活动死斗任务(activeList)
 	--活动抽奖任务(activeList)
 	--推大死斗2任务(activeList)
@@ -243,8 +243,15 @@ function tx2()
 end
 
 --tx2()
-
-main()
+--新手升级角色(5)
+--findStrSub("全部领取",true)
+--领取活动任务奖励()
+--领取每日任务奖励任务()
+--findpic("sd传说兑换币")
+--刷商店("神力殊死战",{"sd传说兑换币"},4)
+--刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
+领取每日任务奖励任务()
+--main()
 --推困难第一章任务()
 --推困难第二章任务()
 --推主线本文字("zx第三章",{"zxjq3-4"},5,1,"3")
@@ -256,8 +263,10 @@ main()
 --推主线第五章任务()
 --推主线第六章任务()
 --新建账号入库("test20240823","12345")
+--是否启动页(false)
 --findstrtest("自动选择")
---findpic("zd加速1")
+--isInPage(5,"访客登入","访客登入","txt",txtParam,0.9)
+--findpic("sd传说兑换币")
 --findpic("zd加速2")
 --findpic("zd加速3")
 --tx3()

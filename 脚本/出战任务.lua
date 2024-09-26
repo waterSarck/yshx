@@ -669,9 +669,9 @@ end
 function 领取活动任务奖励()
 	if findpic("hd任务",true) then
 		sleep(2000)
-		if findpic("hd任务2",true)  then
+		if findpic("hd任务2",true) or findStrSub("任务",true)  then
 			sleep(2000)
-			if findpic("hd全部领取",true)  then
+			if findpic("hd全部领取",true) or findStrSub("全部领取",true)  then
 				sleep(2000)
 				if findpic("ok",true)  then
 					sleep(2000)
@@ -679,9 +679,9 @@ function 领取活动任务奖励()
 				end
 			end
 			sleep(2000)
-			if findstr("每日",true)  then
+			if findstr("每日",true) or findStrSub("每日",true) then
 				sleep(2000)
-				if findpic("hd全部领取",true)  then
+				if findpic("hd全部领取",true) or findStrSub("全部领取",true)  then
 					sleep(2000)
 					if findpic("ok",true)  then
 						sleep(2000)
@@ -691,6 +691,7 @@ function 领取活动任务奖励()
 			end
 		end
 	end
+    页面截图("rw-hd")
 end
 function 扫荡活动最近一章(actName,chapterName,stager,count)
 	while true do

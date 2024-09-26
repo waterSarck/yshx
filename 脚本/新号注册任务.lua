@@ -750,6 +750,8 @@ function 领取新手任务奖励(userList)
 	sleep(4000)
 	findpic("xsrw-新生活动",true)
 	sleep(4000)
+    findStrSub("新手活动",true)
+    sleep(4000)
 	local createCount = 查询账号创建天数(userList.userName)
 	if findStrSub("任务",true) then
 		sleep(4000)
@@ -804,10 +806,12 @@ function 新手升级角色(count)
 		end
 		sleep(1000)
 	end
-	local name = {"js伊娜丝","js卡蒂雅","js战犬"}
+	--local name = {"js伊娜丝","js林恩","js卡蒂雅","js战犬"}
+    local name = {"时御者","仙姿","幽夜女","苍白天使","新月"}
 	for j=1,#name do
 		for i=1,4 do
-			if findpic(name[j],false) == false  then
+			--if findpic(name[j],false) == false  then
+            if findStrSub(name[j],false) == false  then
 				swipe(777,627,771,177,1000)
 				sleep(1000)
 			else
@@ -816,7 +820,7 @@ function 新手升级角色(count)
 			end
 			sleep(1000)
 		end
-		if findpic(name[j],true) then
+		if findStrSub(name[j],true) then
 			loading(2)
 			角色页_关闭引导(5)
 			sleep(1000)

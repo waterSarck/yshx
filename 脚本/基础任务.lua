@@ -907,14 +907,14 @@ function 领取每日任务奖励(userName)
 	--findpic("rw宝箱5",false)
 	--findPicAndClick("rw宝箱5",false,0,0,0.7)
 	local a=496
-	for i=1,10 do
+	for i=1,25 do
 		
 		mytap(a,640)--宝箱1位置
 		sleep(2000)
 		mytap(a,640)--宝箱1位置s
 		findpic("ok",true)
 		sleep(2000)
-		a=a+40
+		a=a+20
 	end
 	
 	findpic("ok",true)
@@ -934,14 +934,14 @@ function 领取每日任务奖励(userName)
 	sleep(4000)
 	findpic("rw宝箱4",true)
 	local t = 490
-	for i=1,10 do
+	for i=1,25 do
 		
 		mytap(t,640)--宝箱1位置
 		sleep(3000)
 		mytap(t,640)--宝箱1位置
 		findpic("ok",true)
 		sleep(2000)
-		t=t+40
+		t=t+20
 	end
 	
 	findpic("ok",true)
