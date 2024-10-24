@@ -54,7 +54,7 @@ function 插入(sqlStr)
 end
 
 function 查询优先级最高账号(mode)
-	local queryUser = "select login_id,login_pass from yshx.user_data where vx_code = '"..mode.."' and update_sort = (select MIN(update_sort) from yshx.user_data where vx_code = '"..mode.."' and state = '1') "
+	local queryUser = "select login_id,login_pass from yshx.user_data where vx_code = '"..mode.."' and update_sort = (select MIN(update_sort) from yshx.user_data where vx_code = '"..mode.."' and state = '1') and state = '1'"
 	return 查询(queryUser)
 end
 
@@ -99,6 +99,17 @@ function 查询设备最优账号()
 	return user
 end
 
+function 查询兑换码()
+
+    local queryInviteCode = "select invite_code,invite_dec from yshx.invite_code t where t.state = '1'"
+    local tb = 查询(queryInviteCode)
+	local user = "none"
+	if #tb >= 1 then
+		print(tb) --打印每一行
+        return tb
+	end
+	return user
+end
 function 查询设备最次账号()
 	--local mode = getModel()
 	local tb = 查询优先级最低账号(mode)

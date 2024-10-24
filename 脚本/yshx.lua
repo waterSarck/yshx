@@ -224,7 +224,7 @@ function tx2()
 	local logPath = config.logPath
 	local actType = modeConfig.actType
 	local activeList = config.activeList
-	--推活动剧情本任务(activeList)
+	推活动剧情本任务(activeList)
 	推活动积分本任务(activeList)
 	--刷复刻活动商店任务(activeList)
 	--推小死斗任务(activeList)
@@ -242,7 +242,22 @@ function tx2()
 	--推主线第六章任务()
 end
 
+function tx3()
+	
+	local bestUserInfo = 查询设备最优账号()
+	local proStr = ""
+	local userName = bestUserInfo[1]
+	local pwd  = bestUserInfo[2]
+	local bestUser = userName
+	local userList = {}
+	userList.userName = userName
+    领取每日任务奖励任务(activeList,userList)
+end
+--推断空禁界2任务()
 --tx2()
+--升级角色任务()
+--强化装备任务()
+--tx3()
 --新手升级角色(5)
 --findStrSub("全部领取",true)
 --领取活动任务奖励()
@@ -250,8 +265,14 @@ end
 --findpic("sd传说兑换币")
 --刷商店("神力殊死战",{"sd传说兑换币"},4)
 --刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
-领取每日任务奖励任务()
---main()
+--领取每日任务奖励任务()
+--连续推图()
+--查询兑换码()
+--setIme(true) --使用懒人自带输入法
+--inputText("hello nice!!!",true) 
+--inputText("111222")
+--领兑换码任务()
+main()
 --推困难第一章任务()
 --推困难第二章任务()
 --推主线本文字("zx第三章",{"zxjq3-4"},5,1,"3")

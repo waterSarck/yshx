@@ -381,7 +381,7 @@ function 升级角色(count)
 	end
 	for i=1,4 do
 		--if findpic("js机甲狂兽",false) == false  then
-		if findpic("jsR角色",false) == false  then
+		if findpic("jsR角色",false) == false and findpic("jsRlv",false) == false then
 			swipe(777,627,771,177,1000)
 			sleep(1000)
 		else
@@ -391,7 +391,7 @@ function 升级角色(count)
 		sleep(1000)
 	end
 	--if findpic("js机甲狂兽",true) then
-	if findpic("jsR角色",true) then
+	if findpic("jsR角色",true) or findpic("jsRlv",true) then
 		loading(2)
 		角色页_关闭引导(5)
 		sleep(1000)
@@ -767,15 +767,16 @@ function 过滑块验证(cycCount,type)
 end
 --领兑换码
 function 领兑换码()
-	local codeFilePath = "/mnt/sdcard/Pictures/code.txt"
-	local codeCount = getFileLineNum(codeFilePath)
+	--local codeFilePath = "/mnt/sdcard/Pictures/code.txt"
+	--local codeCount = getFileLineNum(codeFilePath)
+    local codeList = 查询兑换码()
 	print("=============")
-	print("共计",codeCount,"兑换码")
+	print("共计",codeList,"兑换码")
 	print("=============")
-	for i=1,codeCount do
-		local codeInfo = readUserInfoByLineNum(i,codeFilePath)
-		local code = codeInfo[1]
-		local codeDes  = codeInfo[2]
+	for i=1,#codeList do
+		local codeInfo = codeList[i]
+		local code = codeInfo.invite_code..""
+		local codeDes  = codeInfo.invite_dec..""
 		while true do
 			if findpic("sz请输入序号",true) == false then
 				sleep(1000)
@@ -793,8 +794,9 @@ function 领兑换码()
 			elseif findpic("确认") then
 				sleep(1000)
 				writeLogFile(code)
-				inputText(code)
-				sleep(1000)
+                setIme(true)				
+                inputText(code,true)
+				sleep(5000)
 				while findpic("确认",true) do
 					sleep(6000)
 					if findpic("sz兑换成功") then
@@ -919,11 +921,13 @@ function 领取每日任务奖励(userName)
 	
 	findpic("ok",true)
 	sleep(4000)
-	页面截图()
+	
 	if findpic("tj每日任务完成") then
 		writeLogFile("tj每日任务完成")
 		actionFlag = true
 	end
+    
+    页面截图(userName)
 	findpic("每周",true)
 	sleep(4000)
 	findstr("全部领取",true,930,626,1189,697)
@@ -946,7 +950,7 @@ function 领取每日任务奖励(userName)
 	
 	findpic("ok",true)
 	sleep(4000)
-	
+	页面截图(userName)
 	findpic("成就",true)
 	sleep(4000)
 	findstr("全部领取",true,930,626,1189,697)

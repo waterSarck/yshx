@@ -117,7 +117,7 @@ function 推活动剧情本任务(activeList)
 		--推活动本("hd冰之圣夜","hd心的方向",{"hd-bzsy-jq1","hd-bzsy-jq2","hd-bzsy-jq3","hdstager1","hd-bzsy-jq4","hd-bzsy-jq5","hd-bzsy-jq6","hdstager2","hd-bzsy-jq7"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
-		推活动本(activeList.activeName,activeList.activeJQName,{"hd-sw-jq1","hdstager1","hd-sw-jq2","hd-sw-jq3","hd-sw-jq4","hd-sw-jq5","hd-sw-jq6","hdstager2","hd-sw-jq7","hd-sw-jq8","hd-sw-jq9","hd-sw-jq10","hd-sw-jq11",},10)
+		推活动本(activeList.activeName,activeList.activeJQName,{"hd-sgmh-jq1","hdstager1","hd-sgmh-jq2","hd-sgmh-jq3","hdstager2","hdstager3","hd-sgmh-jq4","hd-sgmh-jq5","hd-sgmh-jq6","hd-sgmh-jq7","hdstager4","hd-sgmh-jq8"},10)
 		
 	end
 end
@@ -136,7 +136,7 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
 		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-htzc-jq1","hdstager1","hd-htzc-jq2","hd-htzc-jq3","hd-htzc-jq4","hd-htzc-jq5","hd-htzc-jq6","hdstager2","hd-htzc-jq7","hd-htzc-jq8"},10)
+		{"hd-ylc-jq1","hd-ylc-jq2","hdstager1","hd-ylc-jq3","hd-ylc-jq4","hd-ylc-jq5","hdstager2","hd-ylc-jq6"},10)
 		
 	end
 end
@@ -362,13 +362,13 @@ function 领取特殊武斗会奖励任务()
 	
 end
 
-function 领取每日任务奖励任务()
+function 领取每日任务奖励任务(activeList,userList)
 	
 	if 是否进入主页(1)   then
 		writeLogFile("*******开始处理任务（领取每日任务奖励）")
-		领取每日任务奖励()
+		return 领取每日任务奖励(userList.userName)
 	end
-	
+	return false
 end
 
 function 领取新手任务奖励任务(activeList,userList)
@@ -675,7 +675,7 @@ end
 
 function 推断空禁界2任务()
 	
-	if 是否进入主页(1) and 是否周几({"4","6"}) then
+	if 是否进入主页(1) and 是否周几({"2","6"}) then
 		writeLogFile("*******开始处理任务（推断空禁界）")
 		推断空塔("ts断空禁界",2,5)
 	end
