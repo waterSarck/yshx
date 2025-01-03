@@ -152,22 +152,9 @@ end
 
 function 资源统计(userName,count,startFlag,success_action,fail_action)
 	local tlStr = 读取等级体力()
-	while true do
-		count = count -1
-		if findstr("仓库",true) or findpic("仓库图标",true) then
-			print("打开仓库")
-			sleep(3000)
-			关闭引导页()
-			if findstr("道具",true) or  findpic("道具",true) then
-				print("打开道具")
-				sleep(3000)
-				break
-			end
-		end
-		if count==0 then
-			return false
-		end
-	end
+	if 进入仓库道具页(count)==false then    
+    	return false
+    end
 	if userName == nil then
 		userName = "user"
 	end
@@ -203,7 +190,7 @@ function 成品截图(userName,count)
 		end
 		sleep(1000)
 	end
-	for i=1,4 do
+	for i=1,7 do
     	页面截图(userName)
         sleep(1000)
 		if findpic("js机甲狂兽",false) == false  then

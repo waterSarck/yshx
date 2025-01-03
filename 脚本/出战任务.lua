@@ -961,7 +961,7 @@ function 过剧情(count)
 		end
 		if findpic("hd暂停战斗",false)==false then
 			
-			mytap(1162,36)--点击战斗结束
+			--=mytap(1162,36)--点击战斗结束
 			sleep(1000)
 		end
 		sleep(1000)
@@ -977,9 +977,9 @@ function 过剧情(count)
 			sleep(1000)
 			mytap(650,310)--结束对话
 		else
-			mytap(1162,36)--结束对话
+			mytap(1071,35)--结束对话
 			sleep(1000)
-			writeLogFile("未找到自动播放，点击屏幕(1162,36)")
+			writeLogFile("未找到自动播放，点击屏幕(1071,36)")
 		end
 		设置战斗模式()
 		

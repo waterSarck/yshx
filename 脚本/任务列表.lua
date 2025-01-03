@@ -117,7 +117,7 @@ function 推活动剧情本任务(activeList)
 		--推活动本("hd冰之圣夜","hd心的方向",{"hd-bzsy-jq1","hd-bzsy-jq2","hd-bzsy-jq3","hdstager1","hd-bzsy-jq4","hd-bzsy-jq5","hd-bzsy-jq6","hdstager2","hd-bzsy-jq7"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
-		推活动本(activeList.activeName,activeList.activeJQName,{"hd-sgmh-jq1","hdstager1","hd-sgmh-jq2","hd-sgmh-jq3","hdstager2","hdstager3","hd-sgmh-jq4","hd-sgmh-jq5","hd-sgmh-jq6","hd-sgmh-jq7","hdstager4","hd-sgmh-jq8"},10)
+		推活动本(activeList.activeName,activeList.activeJQName,{"hd-ym-jq1","hd-ym-jq2","hdstager1","hd-ym-jq3","hd-ym-jq4","hd-ym-jq5","hd-ym-jq6","hdstager2","hd-ym-jq7","hdstager3","hd-ym-jq8","hdstager4","hd-ym-jq9"},10)
 		
 	end
 end
@@ -136,7 +136,7 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
 		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-ylc-jq1","hd-ylc-jq2","hdstager1","hd-ylc-jq3","hd-ylc-jq4","hd-ylc-jq5","hdstager2","hd-ylc-jq6"},10)
+		{"hd-wgzz-jq1","hd-wgzz-jq2","hd-wgzz-jq3","hdstager1","hd-wgzz-jq4","hd-wgzz-jq5","hd-wgzz-jq6","hdstager2","hd-wgzz-jq7"},10)
 		
 	end
 end
@@ -526,14 +526,13 @@ function 刷活动最近一章任务(activeList)
 	
 	if 是否进入主页(1) then
 		writeLogFile("*******开始处理任务24（刷活动最近一章）")
-		扫荡活动最近一章(activeList.activeName,activeList.activeJQName,{"hdstager7","hdstager6","hdstager5","hdstager4","hdstager3","hdstager2","hdstager1"},10)
+		
 		
 		扫荡活动最近一章(activeList.activeName,activeList.activeJFName,
-		{"hdstager12","hdstager11",
-		"hdstager10","hdstager9","hdstager8",
-		"hdstager7","hdstager6","hdstager5",
-		"hdstager4","hdstager3","hdstager2",
-		"hdstager1"},10)
+		{"hdstager1","hdstager2",
+		"hdstager3","hdstager4","hdstager5",
+		"hdstager6","hdstager7"},10)
+        扫荡活动最近一章(activeList.activeName,activeList.activeJQName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7","hdstager8","hdstager9","hdstager10","hdstager11"},10)
 	end
 end
 
@@ -569,9 +568,9 @@ function 刷武斗会商店任务()
 		writeLogFile("*******开始处理任务（刷武斗会商店）")
 		--刷每日商店(5)
 		--扫荡活动("异界狂想曲","布魔之章")
-		刷商店("-般竞技场商店",{"sd传说兑换币","sd-wdh-金币"},3)
-		刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币"},3)
-		
+		刷商店("-般竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
+        刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
+        
 	end
 	
 end

@@ -4,8 +4,14 @@ function 去除广告(count)
 		--mytap(1249,30)
 		--mytap(594,10)
 		sleep(3000)
-		while findpic("关闭广告",true) or findpic("关闭广告1",true) or findpic("gg月卡广告",true)do
+		while findpic("关闭广告",true) or findpic("关闭广告1",true) or findpic("gg月卡广告",true) do
 			print("关闭广告")
+		end
+		
+		while findpic("古神活动-关闭",true)  do
+			sleep(3000)
+			
+			writeLogFile("关闭古神广告")
 		end
 		count = count -1
 		if findpic("出战") and findpic("关闭广告",true)==false then
@@ -273,15 +279,15 @@ function 强化神器(count)
 					if findpic("js升级",true) then
 						sleep(1500)
 						writeLogFile("强化成功")
-                        
-                        sleep(2000)
+						
+						sleep(2000)
 					end
 					sleep(3000)
 					
 				end
 				sleep(2000)
-                findpic("返回",true)
-                sleep(2000)
+				findpic("返回",true)
+				sleep(2000)
 			end
 		else
 			writeLogFile("未找到升级神器")
@@ -300,7 +306,7 @@ function 领邮件(cycCount)
 	--ok
 	--返回主页
 	while true do
-		if findPicAry({"yj邮件","yj邮件2","yj邮件3"},true) then
+		if findPicAry({"yj邮件","yj邮件2","yj邮件3","yj邮件4"},true) then
 			sleep(3000)
 			if findPicAndClick("yj全部领取",true,5,5) then
 				sleep(3000)
@@ -506,13 +512,13 @@ function 升星角色(count)
 							writeLogFile("升阶成功")
 							sleep(1500)
 							--findpic("返回",true)
-                          
+							
 						end
-                        
+						
 						角色页_关闭引导(5)
-                        break
+						break
 					end
-					sleep(1000)									
+					sleep(1000)
 				end
 				sleep(3000)
 				count = count -1
@@ -537,7 +543,7 @@ function 升星角色(count)
 	
 	返回主页(5)
 	loading(3)
-    return true
+	return true
 	--你可以拿来做参考
 end
 
@@ -589,13 +595,13 @@ function 进化角色(count)
 							writeLogFile("升阶成功")
 							sleep(1500)
 							--findpic("返回",true)
-                          
+							
 						end
-                        
+						
 						角色页_关闭引导(5)
-                        break
+						break
 					end
-					sleep(1000)									
+					sleep(1000)
 				end
 				sleep(3000)
 				count = count -1
@@ -620,7 +626,7 @@ function 进化角色(count)
 	
 	返回主页(5)
 	loading(3)
-    return true
+	return true
 	--你可以拿来做参考
 end
 
@@ -769,7 +775,7 @@ end
 function 领兑换码()
 	--local codeFilePath = "/mnt/sdcard/Pictures/code.txt"
 	--local codeCount = getFileLineNum(codeFilePath)
-    local codeList = 查询兑换码()
+	local codeList = 查询兑换码()
 	print("=============")
 	print("共计",codeList,"兑换码")
 	print("=============")
@@ -794,8 +800,8 @@ function 领兑换码()
 			elseif findpic("确认") then
 				sleep(1000)
 				writeLogFile(code)
-                setIme(true)				
-                inputText(code,true)
+				setIme(true)
+				inputText(code,true)
 				sleep(5000)
 				while findpic("确认",true) do
 					sleep(6000)
@@ -926,8 +932,8 @@ function 领取每日任务奖励(userName)
 		writeLogFile("tj每日任务完成")
 		actionFlag = true
 	end
-    
-    页面截图(userName)
+	
+	页面截图(userName)
 	findpic("每周",true)
 	sleep(4000)
 	findstr("全部领取",true,930,626,1189,697)

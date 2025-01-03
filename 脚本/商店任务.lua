@@ -79,7 +79,7 @@ function 刷活动商店(shoopName,actName,page,count)
 						sleep(1000)
 						if findstr("错误提示") then
 							findstr("确认",true)
-                            findstr("是",true)
+							findstr("是",true)
 							writeLogFile("积分不足或已售完")
 							break
 						end
@@ -133,6 +133,7 @@ function 刷周期商店(shoopName,goods,count)
 	返回主页(3)
 end
 
+
 function 刷商店(shoopName,goods,count)
 	local tmpCount = count
 	while true do
@@ -141,7 +142,7 @@ function 刷商店(shoopName,goods,count)
 			for i=1,3 do
 				if findStrSub(shoopName,true) == false  then
 					swipe(131,550,131,177,1000)
-                    print("move")
+					print("move")
 					sleep(1000)
 				else
 					sleep(1000)
@@ -153,7 +154,7 @@ function 刷商店(shoopName,goods,count)
 			sleep(1000)
 			tmpCount = tmpCount -1
 			if tmpCount==0 then
-            	print(tmpCount)
+				print(tmpCount)
 				返回主页(3)
 				return false
 			end
@@ -163,7 +164,7 @@ function 刷商店(shoopName,goods,count)
 	local actionFlag = 购买商品(goods,true)
 	--mytap(54,30)
 	返回主页(3)
-    return actionFlag
+	return actionFlag
 end
 
 function 购买商品(goods,maxflag)
@@ -204,7 +205,7 @@ function 购买商品(goods,maxflag)
 						sleep(1000)
 						if findstr("错误提示") then
 							findstr("确认",true)
-                            findstr("是",true)
+							findstr("是",true)
 							writeLogFile("积分不足或已售完")
 							break
 						end
@@ -213,7 +214,7 @@ function 购买商品(goods,maxflag)
 				else
 					writeLogFile("刷活动商店成功",goods[j])
 					sleep(1500)
-                    return ture
+					return ture
 					
 				end
 				sleep(1000)
@@ -229,4 +230,11 @@ function 购买商品(goods,maxflag)
 		end
 	end
 	return false
+end
+
+function 炼金()
+	
+	if 进入仓库道具页(count) then
+		滑动查找元素(滑动位置,次数，上滑查找，图片名称，文字名称)
+	end
 end

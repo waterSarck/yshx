@@ -10,6 +10,7 @@ function 是否主页()
 	end
 	
 end
+
 function 是否进入主页(count)
 	while true do
 		count = count -1
@@ -49,7 +50,9 @@ function 返回主页(count)
 			print("进入主页失败")
 			return false
 		end
-		mytap(1249,30)--点击返回主页位置
+		if findpic("dkt-暂停")==false then
+			mytap(1249,30)--点击返回主页位置
+		end
 	end
 end
 function 返回上一层(count)
@@ -78,30 +81,30 @@ end
 function 关闭引导页(count)
 	while findpic("活动指引按钮",true) or findpic("关闭引导2",true) do
 		print("关闭指引")
-        sleep(3000)
+		sleep(3000)
 	end
 end
 function 密室_关闭引导页(count)
 	while (findpic("活动指引按钮",true) or findpic("关闭引导2",true)) do
 		print("关闭指引")
-        sleep(3000)
-        count = count -1
-        if count < 0 then
-        	break
-        end
+		sleep(3000)
+		count = count -1
+		if count < 0 then
+			break
+		end
 	end
 end
 function 角色页_关闭引导(count)
 	while findpic("js装备")==false and (findpic("活动指引按钮",true) or findpic("关闭引导2",true)) do
 		print("关闭指引")
-        sleep(3000)
+		sleep(3000)
 	end
 end
 
 function 升阶页_关闭引导(count)
 	while findstr("升阶")==false and (findpic("活动指引按钮",true) or findpic("关闭引导2",true)) do
 		print("关闭指引")
-        sleep(3000)
+		sleep(3000)
 	end
 end
 
@@ -316,7 +319,7 @@ function 延时重启脚本()
 	local current_date = os.date("*t", now)
 	
 	local hour = current_date.hour
-    local second_c = math.random(1,9)
+	local second_c = math.random(1,9)
 	--print("开始定时点重启脚本")
 	if  hour<11 then
 		sec = 计算秒数(11,0)*1000+second_c*10000
@@ -514,4 +517,24 @@ function 计算秒数(inHour,inDay)
 	
 	print("明天"..inHour.."点距离当前时间的秒数是: " .. seconds_to_tomorrow_11)
 	return seconds_to_tomorrow_11
+end
+
+function 进入仓库道具页(count)
+	while true do
+		count = count -1
+		if findstr("仓库",true) or findpic("仓库图标",true) then
+			print("打开仓库")
+			sleep(3000)
+			关闭引导页()
+			if findstr("道具",true) or  findpic("道具",true) then
+				print("打开道具")
+				sleep(3000)
+				return true
+			end
+		end
+		if count==0 then
+        writeLogFile("进入仓库道具页失败")
+			return false
+		end
+	end
 end
