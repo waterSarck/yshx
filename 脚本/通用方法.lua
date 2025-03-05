@@ -533,8 +533,66 @@ function 进入仓库道具页(count)
 			end
 		end
 		if count==0 then
-        writeLogFile("进入仓库道具页失败")
+			writeLogFile("进入仓库道具页失败")
 			return false
 		end
 	end
+end
+
+function 获取明天日期()
+	-- 获取当前时间的时间戳
+    local now = os.time()
+    
+    -- 获取当前日期的年、月、日、小时、分钟、秒
+    --local year, month, day, hour, min, sec = os.date("*t", now)
+    local year = os.date("%Y", now)
+    local month = os.date("%m", now)
+    local day = os.date("%d", now)
+    local hour = os.date("%H", now)
+    local min = os.date("%M", now)
+    local sec = os.date("%S", now)
+print(year, month, day, hour, min, sec)
+    
+    -- 将日加1来获取下一天的日期（注意处理月份和年份的边界情况）
+    day = day + 1
+    
+    -- 如果当前是12月31日，则月份需要变为1月，并且年份需要加1
+    if month == 12 and day > 31 then
+        month = 1
+        year = year + 1
+        -- 这里还需要根据新年份的1月有多少天来调整day，但简单起见，我们先假设是31天
+        -- 实际情况下，你应该检查新年份1月的天数（可能是31天、29天（闰年2月）、28天（平年2月）、或根据具体月份的天数）
+        -- 由于我们的目的是演示，所以这里不处理这种情况的精确性
+        -- 在实际应用中，你可能需要使用一个更复杂的日期库来处理这些情况
+        day = 1 -- 重置为1月1日
+    elseif  math.tointeger(month) < 12 and math.tointeger(day) > math.tointeger(os.date(year, month + 1, 0)) then
+        -- 如果当前月不是12月，但day大于下一个月的天数（os.date(year, month + 1, 0)返回下一个月的天数-1，加1得到天数）
+        month = month + 1
+        day = 1 -- 重置为下一个月的第一天
+    end
+    
+    -- 将修改后的年、月、日（以及原始的小时、分钟、秒）转换回时间戳
+    local nextDay = os.time({year = year, month = month, day = day, hour = hour, min = min, sec = sec})
+    
+    -- 打印下一天的日期
+    local nextD = os.date("%Y-%m-%d", nextDay)
+    print(os.date("%Y-%m-%d", nextDay))
+    
+    return nextD
+end
+
+function 获取昨天日期()
+-- 获取当前时间的时间戳
+local now = os.time()
+
+-- 减去一天的秒数（24小时 * 60分钟 * 60秒）来获取昨天的时间戳
+local yesterdayTimestamp = now - 24 * 60 * 60
+
+-- 将昨天的时间戳格式化为日期字符串
+local yesterdayStr = os.date("%Y-%m-%d", yesterdayTimestamp)
+
+-- 打印昨天的日期
+print(yesterdayStr)
+return yesterdayStr
+
 end

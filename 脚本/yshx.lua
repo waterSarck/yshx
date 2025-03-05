@@ -216,20 +216,39 @@ end
 
 function tx2()
 	configPath = "/mnt/sdcard/Pictures/yshxconfig.txt"
+	local mode = getModel()
 	local config = 读取配置(configPath)
 	local modeConfig = 读取模拟器配置(config)
+	local modeConfigDB = 查询设备配置(mode)
 	--*************************任务流程
 	local actNameList = config[modeConfig.actNameList]
+	
 	local userInfoFilePath = modeConfig.userInfoFilePath
 	local logPath = config.logPath
 	local actType = modeConfig.actType
+	local actTypeDB = modeConfigDB[1].action_type
+	local actionlist_name = modeConfigDB[1].actionlist_name
+	local actionList = 查询任务列表(actionlist_name)
 	local activeList = config.activeList
+	for key, values in pairs(actNameList) do
+		print("actNameList:", key)
+	end
+	print("config", config)
+	print("modeConfig", modeConfig)
+	print("modeConfigDB", modeConfigDB)
+	print("actNameList", actNameList)
+	print("actNameListDB", actionList)
+	print("userInfoFilePath", userInfoFilePath)
+	print("logPath", logPath)
+	print("actType", actType)
+	print("actTypeDB", actTypeDB)
+	print("activeList", activeList)
 	--推活动剧情本任务(activeList)
 	--推活动积分本任务(activeList)
 	--刷复刻活动商店任务(activeList)
 	--推小死斗任务(activeList)
 	推复刻活动剧情本任务(activeList)
-	推复刻活动积分本任务(activeList)
+	--推复刻活动积分本任务(activeList)
 	--推活动积分本任务(activeList)
 	--刷活动商店任务(activeList)
 	--扫荡复刻活动任务(activeList)
@@ -240,7 +259,7 @@ function tx2()
 	--推主线第四章任务()
 	--推主线第五章任务()
 	--推主线第六章任务()
-    --刷活动最近一章任务(activeList)
+	--刷活动最近一章任务(activeList)
 end
 
 function tx3()
@@ -252,60 +271,99 @@ function tx3()
 	local bestUser = userName
 	local userList = {}
 	userList.userName = userName
-    领取每日任务奖励任务(activeList,userList)
+	领取每日任务奖励任务(activeList,userList)
 end
---推断空禁界2任务()
+function tx4()
+	configPath = "/mnt/sdcard/Pictures/yshxconfig.txt"
+	local mode = getModel()
+	local config = 读取配置(configPath)
+	local modeConfig = 读取模拟器配置(config)
+	
+	local userInfoFilePath = modeConfig.userInfoFilePath
+	local logPath = config.logPath
+	local actType = modeConfig.actType
+	local activeList = config.activeList
+	
+	--推活动剧情本任务(activeList)
+	推活动积分本任务(activeList)
+	--推新春活动积分本任务(activeList)
+	--推新春大死斗1任务(activeList)
+	--刷复刻活动商店任务(activeList)
+	--推小死斗任务(activeList)
+	--推复刻活动剧情本任务(activeList)
+	---推复刻活动积分本任务(activeList)
+    --推新春大死斗1任务(activeList)
+    --推新春大死斗2任务(activeList)
+	--推活动积分本任务(activeList)
+	--刷活动商店任务(activeList)
+	--扫荡复刻活动任务(activeList)
+	--推复刻活动死斗任务(activeList)
+	--活动抽奖任务(activeList)
+	--推大死斗2任务(activeList)
+	--推主线第三章任务()
+	--推主线第四章任务()
+	--推主线第五章任务()
+	--推主线第六章任务()
+	--刷活动最近一章任务(activeList)
+    --刷武斗会商店任务()
+    --刷神力商店任务()
+end
+
+function 找到聊天窗(name)
+	if findStrSub(name,true) then
+		sleep(2000)
+		if findpic("qq-发送",true) then
+			setIme(true)
+			inputText(msg,true)
+			sleep(2000)
+			if findStrSub("发送",true) then
+			end
+		end
+		
+	end
+end
+
+function 发送QQ消息(msg)
+	if findpic("qq-发送",true) then
+		setIme(true)
+		inputText(msg,true)
+		sleep(2000)
+		if findpic("qq-发送按钮",true) then
+			print("发送消息：",msg)
+		end
+	end
+end
+function 数据推送()
+	--runApp("com.pinkcore.heros")
+	--登录QQ()
+	--找到聊天窗口并发送消息("肝帝","go")
+	--发送QQ消息("12321")
+	--while true do
+	local end_date = os.date("%m-%d", os.time())
+	local begin_date = utf8.right(获取昨天日期(),5)
+	local nowH = os.date("%H", os.time())
+	if math.tointeger(nowH) >11 then
+		begin_date = os.date("%m-%d", os.time())
+		end_date = utf8.right(获取明天日期(),5)
+	end
+	
+	local vxlist = {"A01","A02","A03","A04","A05","A06","A07","ACT01","ACT02","ACT03","ACT04","ACT05","ACT06","ACT07","ACT08","ACT09","ACT10","ACT11","ACT12"}
+	for key, values in pairs(vxlist) do
+		print("vxlist:key", key)
+		print("vxlist:values", values)
+		local actMsgNot = 查询每日任务完成情况(values,0)
+		local actMsgYes = 查询每日任务完成情况(values,1)
+		local sendMsg = values.."每日任务统计:\n"..begin_date.."至"..end_date.."\n".."已完成：\n"..actMsgYes.."未完成：\n"..actMsgNot
+		发送QQ消息(sendMsg)
+	end
+	sleep(1800000)
+	restartScript()
+	--end
+	
+end
+--tx4()
 --tx2()
---返回主页(4)
---推断空塔("ts断空禁界",1,5)
---findstrtest("-般竞技场商店")
---领取邮件任务()
---刷商店("-般竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
---刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
---刷商店("神力殊死战",{"sd传说兑换币"},4)
---升级角色任务()
---强化装备任务()
---tx3()
---新手升级角色(5)
---findStrSub("全部领取",true)
---领取活动任务奖励()
---领取每日任务奖励任务()
---findpic("sd传说兑换币")
---刷商店("神力殊死战",{"sd传说兑换币"},4)
---刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
---领取每日任务奖励任务()
---连续推图()
---查询兑换码()
---setIme(true) --使用懒人自带输入法
---inputText("hello nice!!!",true) 
---inputText("111222")
---领兑换码任务()
---去除广告(5)
 main()
---推困难第一章任务()
---推困难第二章任务()
---推主线本文字("zx第三章",{"zxjq3-4"},5,1,"3")
---推主线本文字("zx第四章",{"zxjq3-4"},5,1,"4")
---推主线本文字("zx第五章",{"zxjq3-4"},5,1,"5")
---推主线第二章任务()
---推主线第三章任务()
---推主线第四章任务()
---推主线第五章任务()
---推主线第六章任务()
---新建账号入库("test20240823","12345")
---是否启动页(false)
---findstrtest("自动选择")
---isInPage(5,"访客登入","访客登入","txt",txtParam,0.9)
---findpic("sd传说兑换币")
---findpic("zd加速2")
---findpic("zd加速3")
---tx3()
---绑定游戏()
---findpic("xsrw绑定确认是")
---推大死斗1任务()
---登录("gfkfggqfgf@sina.com","fagafafkaqa4")
---刷金币本任务()
---购买体力药任务()
---购买黄券任务()
+
 
 

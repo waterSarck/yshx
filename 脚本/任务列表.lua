@@ -117,7 +117,7 @@ function 推活动剧情本任务(activeList)
 		--推活动本("hd冰之圣夜","hd心的方向",{"hd-bzsy-jq1","hd-bzsy-jq2","hd-bzsy-jq3","hdstager1","hd-bzsy-jq4","hd-bzsy-jq5","hd-bzsy-jq6","hdstager2","hd-bzsy-jq7"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
-		推活动本(activeList.activeName,activeList.activeJQName,{"hd-ym-jq1","hd-ym-jq2","hdstager1","hd-ym-jq3","hd-ym-jq4","hd-ym-jq5","hd-ym-jq6","hdstager2","hd-ym-jq7","hdstager3","hd-ym-jq8","hdstager4","hd-ym-jq9"},10)
+		推活动本(activeList.activeName,activeList.activeJQName,{"hd-hydbk-jq1","hd-hydbk-jq2","hdstager1","hd-hydbk-jq3","hd-hydbk-jq4","hdstager2","hd-hydbk-jq5","hd-hydbk-jq6","hd-hydbk-jq7","hdstager3","hd-hydbk-jq8","hdstager4","hd-hydbk-jq9"},10)
 		
 	end
 end
@@ -136,8 +136,8 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
 		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-wgzz-jq1","hd-wgzz-jq2","hd-wgzz-jq3","hdstager1","hd-wgzz-jq4","hd-wgzz-jq5","hd-wgzz-jq6","hdstager2","hd-wgzz-jq7"},10)
-		
+		{"hd-tyqy-jq1","hd-tyqy-jq2","hd-tyqy-jq3","hdstager1","hd-tyqy-jq4","hd-tyqy-jq5","hd-tyqy-jq6","hd-tyqy-jq7","hdstager2","hd-tyqy-jq8"},10)
+        		
 	end
 end
 
@@ -176,6 +176,36 @@ function 推活动积分本任务(activeList)
 	end
 end
 
+function 推新春活动积分本任务(activeList)
+	
+	if 是否进入主页(1)  then
+		writeLogFile("*******开始处理任务（推活动积分本）")
+		--推活动本("hd水岸狂想","hd如我所愿",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--推活动本("hd水岸狂想","hd如我所愿",{"hdbt1","hdbt2","hdbt3"},10)
+		--推活动本("hd桃源奇遇","hd仙境之章",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--扫荡活动("hd王冠之重","hd暴乱之章","hdstager5",15)
+		--推活动本("hd冰之圣夜","hd纯白的逆袭",{"hdbt1","hdbt2","hdbt3"},10)
+		--推活动本("hd女神的收获祭","hd财富祭典",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--推活动本("hd女神的收获祭","hd神启祭典",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--推活动本("hd巧克力梦工厂","hd知觉解放",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--推活动本("hd深月巡礼","hd圣地异变",{"bsn-EX1","hdEX2","hdEX3"},10)
+		推活动本(activeList.activeName,activeList.activeJFName,{"hd-xc-jf1","hd-xc-jf2","hd-xc-jf3","hd-xc-jf4","hd-xc-jf5","hd-xc-jf6","hd-xc-jf7"},10)
+		
+	end
+end
+
+function 刷新春活动积分本任务(activeList)
+	
+	if 是否进入主页(1)     then
+		writeLogFile("*******开始处理任务（刷活动积分本）")
+		
+		--扫荡活动("bsn不死鸟眼泪","bsn梦魇异境","hdstager5",15)
+		--推活动本("hd王冠之重","hd暴乱之章",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--扫荡活动("hd巧克力梦工厂","hd知觉解放","hdstager5",15)
+		扫荡活动(activeList.activeName,activeList.activeJFName,"hd-xc-jf7",15)
+	end
+	
+end
 function 推复刻活动积分本任务(activeList)
 	
 	if 是否进入主页(1)  then
@@ -194,6 +224,37 @@ function 推复刻活动积分本任务(activeList)
 	end
 end
 
+function 推新春大死斗1任务(activeList)
+	
+	if 是否进入主页(1)     then
+		writeLogFile("*******开始处理任务（推大死斗1）")
+		
+		--扫荡活动("bsn不死鸟眼泪","bsn梦魇异境","hdstager5",15)
+		--推活动本("hd王冠之重","hd暴乱之章",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--扫荡活动("hd王冠之重","hd暴乱之章","hdstager5",15)
+		--推活动本("hd桃源奇遇","hd死战之章1",{"hd-d-EX1","hd-d-EX2","hd-d-EX3","hd-d-EX1Hard","hd-d-EX2Hard","hd-d-EX3Hard"},10)
+		推活动本(activeList.activeName,activeList.activeSD1Name,
+		{"hd-xc-sd1","hd-xc-sd2","hd-xc-sd3","hd-xc-sd4","hd-xc-sd5","hd-xc-sd6"},10)
+		
+	end
+	
+end
+
+function 推新春大死斗2任务(activeList)
+	
+	if 是否进入主页(1)  then
+		writeLogFile("*******开始处理任务（推大死斗2）")
+		
+		--扫荡活动("bsn不死鸟眼泪","bsn梦魇异境","hdstager5",15)
+		--推活动本("hd王冠之重","hd暴乱之章",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
+		--扫荡活动("hd王冠之重","hd暴乱之章","hdstager5",15)
+		--swipe(266,323,266,523,1000)
+		推活动本大(activeList.activeName,activeList.activeSD2Name,
+		{"hd-xc-sdd1","hd-xc-sdd2","hd-xc-sdd3","hd-xc-sdd4","hd-xc-sdd5","hd-xc-sdd6"},10)
+	end
+	
+end
+
 function 扫荡复刻活动任务(activeList)
 	
 	if 是否进入主页(1) then
@@ -205,6 +266,9 @@ function 扫荡复刻活动任务(activeList)
 		--扫荡复刻活动("hd女神的收获祭","hd神启祭典","hdstager1",10)
 		--扫荡复刻活动("hd女神的收获祭","hd神启祭典","hdstager2",10)
 		--扫荡复刻活动("hd女神的收获祭","hd神启祭典","hdstager3",10)
+		扫荡复刻活动重构(activeList.activeFKName,activeList.activeFKJFName,"Stage3",10)
+		扫荡复刻活动重构(activeList.activeFKName,activeList.activeFKJFName,"Stage2",10)
+		扫荡复刻活动重构(activeList.activeFKName,activeList.activeFKJFName,"Stage1",10)
 		扫荡复刻活动重构(activeList.activeFKName,activeList.activeFKJFName,"Battle1",10)
 		扫荡复刻活动重构(activeList.activeFKName,activeList.activeFKJFName,"Battle2",10)
 		扫荡复刻活动重构(activeList.activeFKName,activeList.activeFKJFName,"Battle3",10)
@@ -503,7 +567,7 @@ function 升星任务()
 		writeLogFile("*******开始处理任务25（升星任务）")
 		return 升星角色(5)
 	end
-    return false
+	return false
 end
 
 function 刷2_12任务()
@@ -532,7 +596,7 @@ function 刷活动最近一章任务(activeList)
 		{"hdstager1","hdstager2",
 		"hdstager3","hdstager4","hdstager5",
 		"hdstager6","hdstager7"},10)
-        扫荡活动最近一章(activeList.activeName,activeList.activeJQName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7","hdstager8","hdstager9","hdstager10","hdstager11"},10)
+		扫荡活动最近一章(activeList.activeName,activeList.activeJQName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7","hdstager8","hdstager9","hdstager10","hdstager11"},10)
 	end
 end
 
@@ -564,24 +628,24 @@ end
 
 function 刷武斗会商店任务()
 	
-	if 是否进入主页(1) and 是否周几({"1","0"})  then
+	if 是否进入主页(1) and 是否周几({"1","6"})  then
 		writeLogFile("*******开始处理任务（刷武斗会商店）")
 		--刷每日商店(5)
 		--扫荡活动("异界狂想曲","布魔之章")
-		刷商店("-般竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
-        刷商店("特殊竞技场商店",{"sd传说兑换币","sd-wdh-金币","sd-wdh-体力药"},3)
-        
+		刷商店("-般竞技场商店",{"sd-传说币宝箱","sd-wdh-金币","sd-wdh-体力药"},3)
+		刷商店("特殊竞技场商店",{"sd-传说币宝箱","sd-wdh-金币","sd-wdh-体力药"},3)
+		
 	end
 	
 end
 
 function 刷神力商店任务()
 	
-	if 是否进入主页(1)  and 是否周几({"1","0"})  then
+	if 是否进入主页(1)  and 是否周几({"1","6"})  then
 		writeLogFile("*******开始处理任务（刷神力商店）")
 		--刷每日商店(5)
 		--扫荡活动("异界狂想曲","布魔之章")
-		刷商店("神力殊死战",{"sd传说兑换币"},4)
+		刷商店("神力殊死战",{"sd-传说币宝箱"},4)
 	end
 	
 end

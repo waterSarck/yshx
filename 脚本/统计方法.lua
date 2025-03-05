@@ -253,3 +253,8 @@ function 成品截图(userName,count)
 	loading(3)
 	
 end
+
+function 模拟器每日任务完成情况()
+local actStr = ""
+
+end
