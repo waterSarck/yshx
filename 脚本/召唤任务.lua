@@ -50,7 +50,7 @@ function 活动抽奖(actName,chapterName,count)
 	writeLogFile("--------活动抽奖开始--------")
 	while true do
 		
-		if findpic(chapterName,true) == false then
+		if  findStrSub(chapterName,true,1010,475,1270,590) == false then
 			sleep(1000)
 			if findpic(actName,true) == false then
 				sleep(1000)
@@ -65,14 +65,14 @@ function 活动抽奖(actName,chapterName,count)
 				sleep(3000)
 				关闭引导页(3)
 				sleep(1000)
-				if findpic(chapterName) == false then
+				if findStrSub(chapterName,false,1010,475,1270,590) == false then
 					writeLogFile("账号未解锁该功能")
 					break
 				end
 			end
 		else
 			sleep(2000)
-			if findpic("hd-抽奖-召唤10次",true) then
+			if findpic("hd-抽奖-召唤10次",true)  then
 				local countcj = 20
 				while countcj>1 do
 					countcj = countcj -1

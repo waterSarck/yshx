@@ -526,6 +526,7 @@ function 进入仓库道具页(count)
 			print("打开仓库")
 			sleep(3000)
 			关闭引导页()
+            关闭引导页()
 			if findstr("道具",true) or  findpic("道具",true) then
 				print("打开道具")
 				sleep(3000)

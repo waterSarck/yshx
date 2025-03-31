@@ -9,6 +9,10 @@ function 页面截图(userName)
 	local huangquan = 0
 	local nowTime = os.date("%Y%m%d%H%M%S", os.time())
 	local nowDate = os.date("%Y%m%d", os.time())
+    --local picPath1 = "/data/data/com.nx.nxproj/assistdir/Pictures/PIC/"..nowDate.."/"
+    --local picPath2 = "/data/data/com.nx.nxproj/assistdir/Pictures/PIC/"..nowDate.."/"..userName.."/"
+    	
+    
 	local picPath1 = "/mnt/shared/Pictures/PIC/"..nowDate.."/"
 	local picPath2 = "/mnt/shared/Pictures/PIC/"..nowDate.."/"..userName.."/"
 	local pp = mkdir(picPath1)
@@ -153,7 +157,7 @@ end
 function 资源统计(userName,count,startFlag,success_action,fail_action)
 	local tlStr = 读取等级体力()
 	if 进入仓库道具页(count)==false then    
-    	return false
+    	return "not find cangku"
     end
 	if userName == nil then
 		userName = "user"

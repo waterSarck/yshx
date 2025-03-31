@@ -117,7 +117,7 @@ function 推活动剧情本任务(activeList)
 		--推活动本("hd冰之圣夜","hd心的方向",{"hd-bzsy-jq1","hd-bzsy-jq2","hd-bzsy-jq3","hdstager1","hd-bzsy-jq4","hd-bzsy-jq5","hd-bzsy-jq6","hdstager2","hd-bzsy-jq7"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
-		推活动本(activeList.activeName,activeList.activeJQName,{"hd-hydbk-jq1","hd-hydbk-jq2","hdstager1","hd-hydbk-jq3","hd-hydbk-jq4","hdstager2","hd-hydbk-jq5","hd-hydbk-jq6","hd-hydbk-jq7","hdstager3","hd-hydbk-jq8","hdstager4","hd-hydbk-jq9"},10)
+		推活动本(activeList.activeName,activeList.activeJQName,{"hd-yshm-jq1","hd-yshm-jq2","hd-yshm-jq3","hd-yshm-jq4","hd-yshm-jq5","hdstager1","hdstager2","hd-yshm-jq6","hd-yshm-jq7","hdstager3","hd-yshm-jq8","hd-yshm-jq9"},10)
 		
 	end
 end
@@ -136,7 +136,7 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
 		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-tyqy-jq1","hd-tyqy-jq2","hd-tyqy-jq3","hdstager1","hd-tyqy-jq4","hd-tyqy-jq5","hd-tyqy-jq6","hd-tyqy-jq7","hdstager2","hd-tyqy-jq8"},10)
+		{"hd-qkl-jq1","hd-qkl-jq2","hdstager1","hdstager2","hd-qkl-jq3","hdstager3","hdstager4","hd-qkl-jq4","hdstager5","hdstager6","hd-qkl-jq5","hdstager7","hdstager8","hd-qkl-jq6","hdstager9","hdstager10","hd-qkl-jq7","hd-qkl-jq8"},10)
         		
 	end
 end
@@ -780,7 +780,7 @@ function 活动抽奖任务(activeList)
 	
 	if 是否进入主页(1) and 是否周几({"3","6"}) then
 		writeLogFile("*******开始处理任务（活动抽奖任务）")
-		活动抽奖(activeList.activeName,"hd抽奖箱",10)
+		活动抽奖(activeList.activeName,"抽奖箱",10)
 	end
 end
 

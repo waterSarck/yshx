@@ -35,7 +35,8 @@ function main()
 	local loginState = 判断登陆状态()
 	
 	configPath = "/mnt/sdcard/Pictures/yshxconfig.txt"
-	local config = 读取配置(configPath)
+	--configPath = "/data/data/com.nx.nxproj/assistdir/Pictures/yshxconfig.txt"
+    local config = 读取配置(configPath)
 	local modeConfig = 读取模拟器配置(config)
 	--*************************任务流程
 	local actNameList = config[modeConfig.actNameList]
@@ -247,7 +248,7 @@ function tx2()
 	--推活动积分本任务(activeList)
 	--刷复刻活动商店任务(activeList)
 	--推小死斗任务(activeList)
-	推复刻活动剧情本任务(activeList)
+	--推复刻活动剧情本任务(activeList)
 	--推复刻活动积分本任务(activeList)
 	--推活动积分本任务(activeList)
 	--刷活动商店任务(activeList)
@@ -260,6 +261,7 @@ function tx2()
 	--推主线第五章任务()
 	--推主线第六章任务()
 	--刷活动最近一章任务(activeList)
+    --
 end
 
 function tx3()
@@ -284,14 +286,15 @@ function tx4()
 	local actType = modeConfig.actType
 	local activeList = config.activeList
 	
-	--推活动剧情本任务(activeList)
+    --活动抽奖(activeList.activeName,"抽奖箱",10)
+	推活动剧情本任务(activeList)
 	推活动积分本任务(activeList)
 	--推新春活动积分本任务(activeList)
 	--推新春大死斗1任务(activeList)
 	--刷复刻活动商店任务(activeList)
 	--推小死斗任务(activeList)
 	--推复刻活动剧情本任务(activeList)
-	---推复刻活动积分本任务(activeList)
+	--推复刻活动积分本任务(activeList)
     --推新春大死斗1任务(activeList)
     --推新春大死斗2任务(activeList)
 	--推活动积分本任务(activeList)
@@ -361,9 +364,15 @@ function 数据推送()
 	--end
 	
 end
---tx4()
+tx4()
 --tx2()
-main()
-
+--findstrtest("TO",false,0,570,324,711)
+--findStrSub("TO",true)
+--findStrSub("抽奖箱",true,1010,475,1270,590)
+--过剧情(1)
+--过战斗(count)
+--进入仓库道具页(5)
+--main()
+--过战斗(6)
 
 

@@ -941,8 +941,7 @@ function 刷神力殊死战(lv,count)
 		end
 	end
 	
-	返回主页(5)
-	--你可以拿来做参考
+	返回主页(5)	--你可以拿来做参考
 end
 
 --过剧情
@@ -993,15 +992,24 @@ function 过剧情(count)
 end
 function 设置战斗模式()
 	
-	if findpic("hd未自动2") and findpic("hd已自动") == false then
-		findPicAry({"hd未自动2"},true)
+	if findpic("hd未自动3") then
+		--findPicAry({"hd未自动2"},true)
+        findStrSub("AUTO",true,0,570,324,711)
 		sleep(1000)
+        findpic("hd未自动3",true)
+        sleep(1000)
 	end
 	if findpic("hd未加速") and findpic("hd已加速") == false then
 		findpic("hd未加速",true)
 		sleep(1000)
 	end
+    findpic("hd未加速2",true)
+    sleep(1000)
+    findpic("hd未加速3",true)
+    sleep(1000)
 	findpic("hd未关闭摄像",true)
+    sleep(1000)
+    findpic("hd未关闭摄像2",true)
 	sleep(1000)
 end
 --过战斗
