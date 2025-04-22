@@ -287,14 +287,15 @@ function tx4()
 	local activeList = config.activeList
 	
     --活动抽奖(activeList.activeName,"抽奖箱",10)
-	推活动剧情本任务(activeList)
-	推活动积分本任务(activeList)
+	--推活动剧情本任务(activeList)
+	--推活动积分本任务(activeList)
 	--推新春活动积分本任务(activeList)
 	--推新春大死斗1任务(activeList)
 	--刷复刻活动商店任务(activeList)
 	--推小死斗任务(activeList)
+    --推复刻活动死斗任务(activeList)
 	--推复刻活动剧情本任务(activeList)
-	--推复刻活动积分本任务(activeList)
+	推复刻活动积分本任务(activeList)
     --推新春大死斗1任务(activeList)
     --推新春大死斗2任务(activeList)
 	--推活动积分本任务(activeList)
@@ -302,6 +303,7 @@ function tx4()
 	--扫荡复刻活动任务(activeList)
 	--推复刻活动死斗任务(activeList)
 	--活动抽奖任务(activeList)
+    --推大死斗1任务(activeList)
 	--推大死斗2任务(activeList)
 	--推主线第三章任务()
 	--推主线第四章任务()
@@ -336,6 +338,22 @@ function 发送QQ消息(msg)
 		end
 	end
 end
+
+function 发送sg消息(msg)
+
+    findpic("sg-root取消",true)
+    sleep(2000)
+    findpic("sg-hh小猪",true)
+    sleep(2000)
+	if findpic("sg-发送",true) then
+		setIme(true)
+		inputText(msg,true)
+		sleep(2000)
+		if findpic("sg-发送按钮",true) then
+			print("发送消息：",msg)
+		end
+	end
+end
 function 数据推送()
 	--runApp("com.pinkcore.heros")
 	--登录QQ()
@@ -357,22 +375,34 @@ function 数据推送()
 		local actMsgNot = 查询每日任务完成情况(values,0)
 		local actMsgYes = 查询每日任务完成情况(values,1)
 		local sendMsg = values.."每日任务统计:\n"..begin_date.."至"..end_date.."\n".."已完成：\n"..actMsgYes.."未完成：\n"..actMsgNot
-		发送QQ消息(sendMsg)
+		sleep(30000)
+        发送sg消息(sendMsg)
 	end
-	sleep(1800000)
+	sleep(7000000)
 	restartScript()
 	--end
 	
 end
-tx4()
+
+
+--发送sg消息("111")
+--数据推送()
+--领取邮件任务()
+--findpic("hd-syxl-jq3",false)
+--tx4()
 --tx2()
---findstrtest("TO",false,0,570,324,711)
---findStrSub("TO",true)
+--findStrReturn(0,570,324,711,50,0,0.1,0.4,2.7)
+--findOCRParm(0,570,324,711,"AUTO",50,0,0.1,0.4,2.7)
+--findstrtest("TO",false,0,570,324,711,50,0,0.1,0.4,2.7)
+--findstrtest("TO")
+--findStrSub("AUTO",false,0,570,324,711,50,0,0.1,0.4,2.7)
 --findStrSub("抽奖箱",true,1010,475,1270,590)
 --过剧情(1)
 --过战斗(count)
 --进入仓库道具页(5)
---main()
+main()
+--snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
+--
 --过战斗(6)
 
 

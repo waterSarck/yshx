@@ -306,7 +306,7 @@ function 领邮件(cycCount)
 	--ok
 	--返回主页
 	while true do
-		if findPicAry({"yj邮件","yj邮件2","yj邮件3","yj邮件4"},true) then
+		if findPicAry({"yj邮件","yj邮件2","yj邮件3","yj邮件4","yj邮件5"},true) then
 			sleep(3000)
 			if findPicAndClick("yj全部领取",true,5,5) then
 				sleep(3000)

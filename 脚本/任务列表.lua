@@ -136,7 +136,7 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
 		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-qkl-jq1","hd-qkl-jq2","hdstager1","hdstager2","hd-qkl-jq3","hdstager3","hdstager4","hd-qkl-jq4","hdstager5","hdstager6","hd-qkl-jq5","hdstager7","hdstager8","hd-qkl-jq6","hdstager9","hdstager10","hd-qkl-jq7","hd-qkl-jq8"},10)
+		{"hd-syxl-jq1","hd-syxl-jq2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager1","hd-syxl-jq7","hdstager2","hd-syxl-jq8"},10)
         		
 	end
 end
@@ -338,6 +338,17 @@ function 刷金币本任务()
 	
 	if  是否进入主页(1)    then
 		writeLogFile("*******开始处理任务13（刷金币本）")
+		
+		扫荡资源("zy淘金富途",{"zy第一层","zy第二层","zy第三层","zy淘金4层","zy淘金5层"},15)
+		
+	end
+	
+end
+
+function 刷结缘石任务()
+	
+	if  是否进入主页(1)    then
+		writeLogFile("*******开始处理任务（刷结缘石1）")
 		
 		扫荡资源("zy淘金富途",{"zy第一层","zy第二层","zy第三层","zy淘金4层","zy淘金5层"},15)
 		

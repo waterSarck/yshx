@@ -182,9 +182,13 @@ function findStrSub(...)
 	if t[3] == nil then
 		t[3],t[4],t[5],t[6] = 0,0,0,0
 	end
+    
+    if t[7] == nil then
+    	t[7],t[8],t[9],t[10],t[11] = 50,0,0.60,0.30,2.00
+    end
 	
 	local x,y
-	local ret = ocrEx(t[3],t[4],t[5],t[6],50,0,0.60,0.30,2.00,false,false)
+	local ret = ocrEx(t[3],t[4],t[5],t[6],t[7],t[8],t[9],t[10],t[11],false,false)
 	--print("²éÕÒ½á¹û",ret)
 	if ret ~= nil then
 		for i=1,#ret do
