@@ -117,8 +117,9 @@ function 推活动剧情本任务(activeList)
 		--推活动本("hd冰之圣夜","hd心的方向",{"hd-bzsy-jq1","hd-bzsy-jq2","hd-bzsy-jq3","hdstager1","hd-bzsy-jq4","hd-bzsy-jq5","hd-bzsy-jq6","hdstager2","hd-bzsy-jq7"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
-		推活动本(activeList.activeName,activeList.activeJQName,{"hd-yshm-jq1","hd-yshm-jq2","hd-yshm-jq3","hd-yshm-jq4","hd-yshm-jq5","hdstager1","hdstager2","hd-yshm-jq6","hd-yshm-jq7","hdstager3","hd-yshm-jq8","hd-yshm-jq9"},10)
-		
+		--推活动本(activeList.activeName,activeList.activeJQName,{"hd-yshm-jq1","hd-yshm-jq2","hd-yshm-jq3","hd-yshm-jq4","hd-yshm-jq5","hdstager1","hdstager2","hd-yshm-jq6","hd-yshm-jq7","hdstager3","hd-yshm-jq8","hd-yshm-jq9"},10)
+		推活动本(activeList.activeName,activeList.activeJQName,activeList.activeHdJqList,10)
+        		
 	end
 end
 
@@ -135,9 +136,9 @@ function 推复刻活动剧情本任务(activeList)
 		--推活动本("hd冰之圣夜","hd心的方向",{"hd-bzsy-jq1","hd-bzsy-jq2","hd-bzsy-jq3","hdstager1","hd-bzsy-jq4","hd-bzsy-jq5","hd-bzsy-jq6","hdstager2","hd-bzsy-jq7"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"hd-syxl-jq1","hd-syxl-jq2","hdstager1","hdstager2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager3","hdstager4","hd-syxl-jq7","hdstager5","hd-syxl-jq8"},10)
 		--推活动本("hd天之音乐祭","hd两人的回忆",{"hd-yyj-jq1","hd-yyj-jq2","hd-yyj-jq3","hdstager1","hd-yyj-jq4","hd-yyj-jq5","hdstager2","hd-yyj-jq6"},10)
-		推活动本(activeList.activeFKName,activeList.activeFKJQName,
-		{"hd-syxl-jq1","hd-syxl-jq2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager1","hd-syxl-jq7","hdstager2","hd-syxl-jq8"},10)
-        		
+		--推活动本(activeList.activeFKName,activeList.activeFKJQName,{"hd-syxl-jq1","hd-syxl-jq2","hd-syxl-jq3","hd-syxl-jq4","hd-syxl-jq5","hd-syxl-jq6","hdstager1","hd-syxl-jq7","hdstager2","hd-syxl-jq8"},10)
+        推活动本(activeList.activeFKName,activeList.activeFKJQName,activeList.activeFkJqList,10)
+                        		
 	end
 end
 
@@ -614,7 +615,7 @@ end
 
 function 刷活动商店任务(activeList)
 	
-	if 是否进入主页(1) and 是否周几({"1","5"}) then
+	if 是否进入主页(1) and 是否周几({"4","3","6"}) then
 		writeLogFile("*******开始处理任务25（刷活动商店）")
 		刷活动商店("MAX",activeList.activeName,1,10)
 	end

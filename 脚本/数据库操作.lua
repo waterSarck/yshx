@@ -153,7 +153,8 @@ function 新建账号入库(login_id,login_pass)
 	--查询(queryUser)
 end
 
-function 查询设备配置(mode)
+function 查询设备配置()
+	local mode = getModel()
 	local querySql = "select * from yshx.mode_config t where t.vx_code = '"..mode.."' and t.state = '1'"
 	return 查询(querySql)
 end
@@ -171,6 +172,36 @@ function 查询任务列表(actionlist_name)
 		
 	end
 	return actionlist
+end
+
+function 查询当前活动列表()
+	
+	local querySqlHD = "select * from yshx.active t where t.active_type = 'hd' and t.state = '1'"
+	local hd = 查询(querySqlHD)
+	local querySqlFK = "select * from yshx.active t where t.active_type = 'fk' and t.state = '1'"
+	local fk = 查询(querySqlFK)
+	local activeList = {}
+	if #hd >= 1 then
+		activeList.activeName = hd[1].active_name
+		activeList.activeJQName = hd[1].active_jq_name
+		activeList.activeJFName = hd[1].active_jf_name
+		activeList.activeSD1Name = hd[1].active_sd1_name
+		activeList.activeSD2Name = hd[1].active_sd2_name
+        activeList.activeSDXName = hd[1].active_sdx_name
+        local activeJqList = splitStr(hd[1].active_jq_list,"|")
+        activeList.activeHdJqList = activeJqList
+		print("activeList",activeList)
+	end
+	if #fk >= 1 then
+		activeList.activeFKName = fk[1].active_name
+		activeList.activeFKJQName = fk[1].active_jq_name
+		activeList.activeFKJFName = fk[1].active_jf_name
+		activeList.activeFKSDName = fk[1].active_fksd_name
+        local activeJqList = splitStr(fk[1].active_jq_list,"|")
+        activeList.activeFkJqList = activeJqList
+		print("activeList",activeList)
+	end
+	return activeList
 end
 
 function 查询每日任务完成情况(vx_code,qryType)

@@ -535,6 +535,7 @@ function 进入仓库道具页(count)
 		end
 		if count==0 then
 			writeLogFile("进入仓库道具页失败")
+           	返回主页(5)
 			return false
 		end
 	end
