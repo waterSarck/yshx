@@ -54,17 +54,17 @@ function 新手任务1战斗()
 	--一段战斗
 	writeLogFile("--------新手任务1战斗开始--------")
 	while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
-		mytap(945,603)--1技能
+		mytap(890,639)--1技能
 		sleep(1000)
-		mytap(1160,603)--3技能
+		mytap(1107,639)--3技能
 		sleep(1000)
-		mytap(1160,603)--3技能
+		mytap(1107,639)--3技能
 		sleep(1000)
-		mytap(1052,603)--2技能
+		mytap(1000,639)--2技能
 		sleep(1000)
-		mytap(1052,603)--2技能
+		mytap(1000,639)--2技能
 		sleep(1000)
-		mytap(945,603)--1技能
+		mytap(890,639)--1技能
 		sleep(1000)
 	end
 	writeLogFile("--------新手任务1战斗结束--------")
@@ -90,15 +90,15 @@ function 新手任务2上古神器()
 							loading(3)
 							--二段战斗
 							while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
-								mytap(1160,603)--3技能
+								mytap(1107,639)--3技能
 								sleep(1000)
-								mytap(1160,603)--3技能
+								mytap(1107,639)--3技能
 								sleep(1000)
-								mytap(1052,603)--2技能
+								mytap(1000,639)--2技能
 								sleep(1000)
-								mytap(1052,603)--2技能
+								mytap(1000,639)--2技能
 								sleep(1000)
-								mytap(994,603)--1技能
+								mytap(890,639)--1技能
 								sleep(1000)
 								mytap(928,280)--机器人
 								sleep(1000)
@@ -201,17 +201,17 @@ function 新手任务4出战()
 							loading(3)
 							--二段战斗
 							while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
-								mytap(1160,603)--3技能
+								mytap(1107,639)--3技能
 								sleep(1000)
-								mytap(1160,603)--3技能
+								mytap(1107,639)--3技能
 								sleep(1000)
-								mytap(1052,603)--2技能
+								mytap(1000,639)--2技能
 								sleep(1000)
-								mytap(1052,603)--2技能
+								mytap(1000,639)--2技能
 								sleep(1000)
-								mytap(994,603)--1技能
+								mytap(890,639)--1技能
 								sleep(1000)
-								mytap(813,267)--机器人
+								mytap(928,280)--机器人
 								sleep(1000)
 							end
 							loading(5)
@@ -266,17 +266,17 @@ function 新手任务4出战()
 						loading(3)
 						--二段战斗
 						while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
-							mytap(1160,603)--3技能
+							mytap(1107,639)--3技能
 							sleep(1000)
-							mytap(1160,603)--3技能
+							mytap(1107,639)--3技能
 							sleep(1000)
-							mytap(1052,603)--2技能
+							mytap(1000,639)--2技能
 							sleep(1000)
-							mytap(1052,603)--2技能
+							mytap(1000,639)--2技能
 							sleep(1000)
-							mytap(994,603)--1技能
+							mytap(890,639)--1技能
 							sleep(1000)
-							mytap(813,267)--机器人
+							mytap(928,280)--机器人
 							sleep(1000)
 						end
 						loading(5)
@@ -335,6 +335,11 @@ end
 
 function 新手任务6密室()
 	writeLogFile("--------新手任务6密室开始--------")
+	--密室入口1，首页
+	--密室入口2，时御者亲密1
+	--密室入口3，时御者亲密2
+	
+	--密室入口1，首页
 	if findstr("蜜室",true) or findpic("xsrw密室",true) or findpic("xsrw密室2",true) then
 		--if true then
 		sleep(2000)
@@ -342,25 +347,49 @@ function 新手任务6密室()
 			loading(3)
 			密室_关闭引导页(10)
 			sleep(8000)
-			while findpic("xsrw密室时御者",true) do
-				sleep(3000)
-			end
-			--mytap(1048,213)--密室任务
-			sleep(10000)
-			if findstr("自动选择",true)  or findStrSub("自动",true) then
-				sleep(1000)
-				if findstr("确认",true) then
-					sleep(3000)
-					mytap(1216,29)--返回主页
-					sleep(1000)
-					mytap(1216,29)--返回主页
-					sleep(1000)
-					loading(3)
-				end
-			end
 		end
 		--返回主页(3)
 	end
+	
+	--密室入口2，时御者亲密1
+	if findpic("xsrw密室时御者") then
+		while findpic("xsrw密室时御者",true) do
+			sleep(3000)
+		end
+		
+		sleep(10000)
+		if findstr("自动选择",true)  or findStrSub("自动",true) then
+			sleep(1000)
+			if findstr("确认",true) then
+				sleep(3000)
+				mytap(1216,29)--返回主页
+				sleep(1000)
+				mytap(1216,29)--返回主页
+				sleep(1000)
+				loading(3)
+			end
+		end
+	end
+	--密室入口3，时御者亲密2
+	if findpic("xsrw时御者亲密2") then
+		while findpic("xsrw时御者亲密2",true) do
+			sleep(3000)
+		end
+		
+		sleep(10000)
+		if findstr("自动选择",true)  or findStrSub("自动",true) then
+			sleep(1000)
+			if findstr("确认",true) then
+				sleep(3000)
+				mytap(1216,29)--返回主页
+				sleep(1000)
+				mytap(1216,29)--返回主页
+				sleep(1000)
+				loading(3)
+			end
+		end
+	end
+	
 	writeLogFile("--------新手任务6密室结束--------")
 end
 function 新手任务7第一章(count,stagerName,chapterName)
@@ -750,8 +779,8 @@ function 领取新手任务奖励(userList)
 	sleep(4000)
 	findpic("xsrw-新生活动",true)
 	sleep(4000)
-    findStrSub("新手活动",true)
-    sleep(4000)
+	findStrSub("新手活动",true)
+	sleep(4000)
 	local createCount = 查询账号创建天数(userList.userName)
 	if findStrSub("任务",true) then
 		sleep(4000)
@@ -807,11 +836,11 @@ function 新手升级角色(count)
 		sleep(1000)
 	end
 	--local name = {"js伊娜丝","js林恩","js卡蒂雅","js战犬"}
-    local name = {"时御者","仙姿","幽夜女","苍白天使","新月"}
+	local name = {"时御者","仙姿","幽夜女","苍白天使","新月"}
 	for j=1,#name do
 		for i=1,4 do
 			--if findpic(name[j],false) == false  then
-            if findStrSub(name[j],false) == false  then
+			if findStrSub(name[j],false) == false  then
 				swipe(777,627,771,177,1000)
 				sleep(1000)
 			else
