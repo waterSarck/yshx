@@ -1011,6 +1011,7 @@ function 设置战斗模式()
     sleep(1000)
     findpic("hd未关闭摄像2",true)
 	sleep(1000)
+    关闭广告页()
 end
 --过战斗
 function 过战斗20240720(count)

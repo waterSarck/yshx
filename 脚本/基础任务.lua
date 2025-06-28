@@ -4,9 +4,7 @@ function 去除广告(count)
 		--mytap(1249,30)
 		--mytap(594,10)
 		sleep(3000)
-		while findpic("关闭广告",true) or findpic("关闭广告1",true) or findpic("gg月卡广告",true) do
-			print("关闭广告")
-		end
+		关闭广告页()
 		
 		while findpic("古神活动-关闭",true)  do
 			sleep(3000)
@@ -23,6 +21,14 @@ function 去除广告(count)
 			return false
 		end
 	end
+end
+
+function 关闭广告页(count)
+	sleep(3000)
+	while findpic("关闭广告",true) or findpic("关闭广告1",true) or findpic("gg月卡广告",true) or findpic("hd关闭广告页5",true) do
+		print("关闭广告")
+	end
+	
 end
 
 --type 1,2,3,4 对应体力药，eatNum吃药数量
@@ -779,48 +785,56 @@ function 领兑换码()
 	print("=============")
 	print("共计",codeList,"兑换码")
 	print("=============")
-	for i=1,#codeList do
-		local codeInfo = codeList[i]
-		local code = codeInfo.invite_code..""
-		local codeDes  = codeInfo.invite_dec..""
-		while true do
-			if findpic("sz请输入序号",true) == false then
-				sleep(1000)
-				if findpic("sz序号兑换",true) == false then
-					sleep(1000)
-					if findpic("设定",true) == false then
-						if findpic("sz错误") then
-							while findpic("确认",true) do
-								sleep(1000)
-							end
-							break
-						end
-					end
-				end
-			elseif findpic("确认") then
-				sleep(1000)
-				writeLogFile(code)
-				setIme(true)
-				inputText(code,true)
-				sleep(5000)
+	if findpic("设定",true) == false then
+		
+	else
+		for i=1,#codeList do
+			local codeInfo = codeList[i]
+			local code = codeInfo.invite_code..""
+			local codeDes  = codeInfo.invite_dec..""
+			
+			if findpic("sz错误") then
 				while findpic("确认",true) do
-					sleep(6000)
-					if findpic("sz兑换成功") then
-						writeLogFile("兑换成功",code," :",codeDes)
-					end
-					if findpic("sz兑换过了") then
-						writeLogFile("兑换码重复",code," :",codeDes)
-					end
 					sleep(1000)
+					
 				end
 				
-				break
-			else
-				break
 			end
 			
+			sleep(3000)
+			if findpic("sz序号兑换",true)  then
+				sleep(1000)
+				
+				
+				if findpic("sz请输入序号",true) then
+					sleep(1000)
+					
+					if findpic("确认") then
+						sleep(1000)
+						writeLogFile(code)
+						setIme(true)
+						inputText(code,true)
+						sleep(5000)
+						while findpic("确认",true) do
+							sleep(6000)
+							if findpic("sz兑换成功") then
+								writeLogFile("兑换成功",code," :",codeDes)
+							end
+							if findpic("sz兑换过了") then
+								writeLogFile("兑换码重复",code," :",codeDes)
+							end
+							sleep(1000)
+						end
+					end
+					
+					
+					
+				end
+			end
 		end
+		
 	end
+	
 	返回主页(3)
 end
 

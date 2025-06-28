@@ -1,6 +1,6 @@
 function 刷活动商店(shoopName,actName,page,count)
 	if shoopName == "MAX" then
-		shoopName = {"hd扫荡券","hd羁绊契约","hd金币","hd破界之玉","hd回忆沙漏"
+		shoopName = {"hd扫荡券","hd羁绊契约","hd金币","hd破界之玉","sd结缘石","hd回忆沙漏"
 		,"hd香水","hd纯洁","hd破阵秘册","hd坚壁秘册","hd破阵书页","hd坚壁书页","hd凝神秘石","hd圣愈秘册","hd灵佑秘册","hd圣愈书页","hd灵佑书页"}
 	end
 	if shoopName == "LV1" then
@@ -167,6 +167,44 @@ function 刷商店(shoopName,goods,count)
 	return actionFlag
 end
 
+function 刷武斗会商店(shoopName1,shoopName2,goods,count)
+	查找商店路径(shoopName1,shoopName2,count)
+	local actionFlag = 购买商品(goods,true)
+	--mytap(54,30)
+	返回主页(3)
+	return actionFlag
+end
+function 查找商店路径(shoopName1,shoopName2,count)
+	local tmpCount = count
+	while true do
+		if findstr("商店",true) then
+			关闭引导页(5)
+			for i=1,3 do
+				if findStrSub(shoopName1,true) == false  then
+					swipe(131,550,131,177,1000)
+					print("move")
+					sleep(1000)
+				else
+					sleep(1000)
+                    if findStrSub(shoopName2,true) then
+						goto continuetmp
+                    end
+				end
+				sleep(1000)
+			end
+			
+			sleep(1000)
+			tmpCount = tmpCount -1
+			if tmpCount==0 then
+				print(tmpCount)
+				返回主页(3)
+				return false
+			end
+		end
+	end
+	::continuetmp::
+end
+
 function 购买商品(goods,maxflag)
 	for j=1,#goods do
 		for i=1,3 do
@@ -214,8 +252,8 @@ function 购买商品(goods,maxflag)
 				else
 					writeLogFile("刷活动商店成功",goods[j])
 					sleep(1500)
-					return ture
-					
+					--return ture
+					break
 				end
 				sleep(1000)
 				tmpCount = tmpCount -1
