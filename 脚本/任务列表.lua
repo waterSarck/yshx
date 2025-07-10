@@ -615,7 +615,7 @@ end
 
 function 刷活动商店任务(activeList)
 	
-	if 是否进入主页(1) and 是否周几({"1","2","3"}) then
+	if 是否进入主页(1) and 是否周几({"4","3","6"}) then
 		writeLogFile("*******开始处理任务25（刷活动商店）")
 		刷活动商店("MAX",activeList.activeName,1,10)
 	end
