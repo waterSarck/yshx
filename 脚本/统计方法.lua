@@ -186,8 +186,8 @@ function 成品截图(userName,count)
 		else
 			break
 		end
-		countTmp = countTmp -1
-		if countTmp == 0 then
+		tmpCount = tmpCount -1
+		if tmpCount == 0 then
 			writeLogFile("升级失败")
 			返回主页(5)
 			return false
