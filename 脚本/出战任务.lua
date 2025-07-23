@@ -180,7 +180,7 @@ function 连续推图()
 			if findpic("hd出战",true) then --战斗标志
 				sleep(1000)
 				关闭引导页(3)
-				if findpic("hd出战",true) or findpic("zx队伍配置警告") or findpic("zd注意") then
+				if findpic("zd进入关卡",true) or findpic("zx队伍配置警告") or findpic("hd出战",true) then
 					findpic("hd回复精力-否",true)
 					sleep(1000)
 					if findstr("自动编队",true) then
