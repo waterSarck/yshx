@@ -121,6 +121,8 @@ function 推图()
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) then
 		
 		关闭引导页(3)
+        sleep(3000)
+                findpic("zd等级提示下一关",true)
 		loading(5)
 		--无体力
 		if findpic("hd回复精力") then
@@ -135,7 +137,7 @@ function 推图()
 			if findpic("hd出战",true) then --战斗标志
 				sleep(1000)
 				关闭引导页(3)
-				if findpic("hd出战",true) or findpic("zx队伍配置警告") then
+				if findpic("zd进入关卡",true) or findpic("hd出战",true) or findpic("zx队伍配置警告") then
 					findpic("hd回复精力-否",true)
 					sleep(1000)
 					if findstr("自动编队",true) then
@@ -168,8 +170,11 @@ end
 function 连续推图()
 	writeLogFile("连续推图")
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) or findstr("作战准备",true) then
-		loading(5)
+		sleep(3000)
+        findpic("zd等级提示下一关",true)
+        loading(5)
 		
+        
 		--无体力
 		if findpic("hd回复精力") then
 			writeLogFile("暂无精力战斗")
@@ -202,6 +207,9 @@ function 连续推图()
 				end
 				findpic("hd下一关",true)
 				sleep(2000)
+                
+                        findpic("zd等级提示下一关",true)
+                        sleep(3000)
 				
 				if findpic("hd回复精力") then
 					print("暂无精力战斗")
