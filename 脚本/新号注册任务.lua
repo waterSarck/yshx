@@ -72,8 +72,8 @@ end
 function 新手任务2上古神器()
 	--一段战斗
 	writeLogFile("--------新手任务2上古神器开始--------")
-	if findstr("离开",true) or findstr("再次挑战") or findpic("xsrw上古神器",true) then
-		mytap(507,655)--点击离开
+	if findstr("离开",true) or findstr("再次挑战") or findpic("xsrw上古神器",true) or findpic("zx第一章",true) then
+		--mytap(507,655)--点击离开
 		loading(5)
 		if findstr("出战",true) or findpic("xsrw出战",true) or findpic("xsrw上古神器",true) then
 			sleep(2000)
@@ -118,6 +118,9 @@ function 新手任务2上古神器()
 			end
 		end
 	end
+    --启动-出战-第一章
+    
+    
 	writeLogFile("--------新手任务2上古神器结束--------")
 end
 function 新手任务3召唤()
@@ -143,7 +146,7 @@ function 新手任务3召唤()
 		sleep(1000)
 		local zhcount = 0 --召唤次数
 		
-		while findstr("召唤1次",true) do
+		while findstr("召唤1次",true) or findpic("zh三角",true) do
 			sleep(3000)
 			if findpic("是",true) then
 				
@@ -176,15 +179,15 @@ function 新手任务3召唤()
 			loading(3)
 		end
 	end
-	
+	返回主页(3)
 	writeLogFile("--------新手任务3召唤结束--------")
 end
 function 新手任务4出战()
 	writeLogFile("--------新手任务4出战开始--------")
-	if findstr("出战",true) or findpic("xsrw出战",true) then
+	if findstr("出战",true) or findpic("xsrw出战",true) or findstr("1-2") then
 		--if true then
 		sleep(1000)
-		if findstr("第1章",true) or findstr("艾洛斯的觉醒",true) then
+		if findstr("第1章",true) or findstr("艾洛斯的觉醒",true) or findstr("1-2") then
 			--if true then
 			sleep(2000)
 			if findstr("1-2",true)  then
@@ -193,9 +196,12 @@ function 新手任务4出战()
 				if findstr("作战准备",true) then
 					--if true then
 					sleep(2000)
-					关闭引导页()
+					关闭引导页(5)
 					sleep(2000)
-					if findstr("自动编队",true) then
+                    if findStrSub("第1队") then
+                    	mytap(57,670)--自动编队
+                    end
+					if findstr("自动编队",true) or findpic("zd自动编队",true) then
 						sleep(2000)
 						if findstr("出战",true) then
 							loading(3)
