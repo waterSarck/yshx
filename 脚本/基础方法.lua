@@ -171,8 +171,72 @@ function findStrSubMove(stagerName,mvPos,clickflag)
 	end
 	return findStrSub(stagerName,clickflag)
 end
+
+function findStrSubCount(stagerName,count,clickflag)
+	for i=1,count do
+		if findStrSub(stagerName,clickflag) then			
+			return true
+		else
+			sleep(1000)
+		end	
+	end
+	return false
+end
+
+function findPicCount(stagerName,count,clickflag)
+	for i=1,count do
+		if findpic(stagerName,clickflag) then			
+			return true
+		else
+			sleep(1000)
+		end	
+	end
+	return false
+end
 --查找子字符串
 function findStrSub(...)
+	local t = {...}
+	
+	if t[2] == nil then
+		t[2] = false
+	end
+	
+	if t[3] == nil then
+		t[3],t[4],t[5],t[6] = 0,0,0,0
+	end
+    
+    if t[7] == nil then
+    	t[7],t[8],t[9],t[10],t[11] = 50,0,0.60,0.30,2.00
+    end
+	
+	local x,y
+	local ret = ocrEx(t[3],t[4],t[5],t[6],t[7],t[8],t[9],t[10],t[11],false,false)
+	--print("查找结果",ret)
+	if ret ~= nil then
+		for i=1,#ret do
+			local findRet = utf8.inStr(1,ret[i].text,t[1])
+			--print("查找结果",findRet)
+			if findRet ~=nil and findRet>0 then
+				
+				print("查找到的文字",ret[i].text)
+				
+				print("找字",t[1],"成功")
+				x,y = (ret[i].l+ret[i].r)/2,(ret[i].t+ret[i].b)/2
+				if t[2] then
+					tap(x + rnd(-10,10),y + rnd(-10,10))
+					print("点击",x,y)
+					sleep(1000,1600)
+				end
+				return true
+			end
+		end
+	end
+	print("找字",t[1],"失败")
+	return false
+end
+
+--查找子字符串
+function findStrSubTapOther(...)
 	local t = {...}
 	
 	if t[2] == nil then
@@ -278,6 +342,8 @@ function findPicAndClick(imgName,clickType,xx,yy,sim)
 		return false
 	end
 end
+
+
 --重复点击
 function cilickNum(count,x,y)
 	while true do

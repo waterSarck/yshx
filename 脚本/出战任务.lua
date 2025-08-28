@@ -121,8 +121,8 @@ function 推图()
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) then
 		
 		关闭引导页(3)
-        sleep(3000)
-                findpic("zd等级提示下一关",true)
+		sleep(3000)
+		findpic("zd等级提示下一关",true)
 		loading(5)
 		--无体力
 		if findpic("hd回复精力") then
@@ -171,10 +171,10 @@ function 连续推图()
 	writeLogFile("连续推图")
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) or findstr("作战准备",true) then
 		sleep(3000)
-        findpic("zd等级提示下一关",true)
-        loading(5)
+		findpic("zd等级提示下一关",true)
+		loading(5)
 		
-        
+		
 		--无体力
 		if findpic("hd回复精力") then
 			writeLogFile("暂无精力战斗")
@@ -207,9 +207,9 @@ function 连续推图()
 				end
 				findpic("hd下一关",true)
 				sleep(2000)
-                
-                        findpic("zd等级提示下一关",true)
-                        sleep(3000)
+				
+				findpic("zd等级提示下一关",true)
+				sleep(3000)
 				
 				if findpic("hd回复精力") then
 					print("暂无精力战斗")
@@ -502,9 +502,9 @@ function 查找章节(actName,chapterName,stager,count)
 				end
 			end
 		else
-        writeLogFile("查找章节成功")
-        	return true
-        end
+			writeLogFile("查找章节成功")
+			return true
+		end
 		sleep(2000)
 		count = count -1
 		if count==0 then
@@ -518,13 +518,13 @@ end
 function 扫荡(count)
 	while true do
 		if findpic("ok",true) == false then
-        sleep(2000)
+			sleep(2000)
 			if findpic("确认",true) == false then
-            sleep(2000)
+				sleep(2000)
 				if findpic("扫荡",true) == false then
-                sleep(2000)
+					sleep(2000)
 				else
-                sleep(2000)
+					sleep(2000)
 					if findpic("zy次数用完") then
 						writeLogFile("暂无次数扫荡")
 						findpic("确认",true)
@@ -552,11 +552,11 @@ function 扫荡(count)
 end
 function 扫荡复刻活动重构(actName,chapterName,stager,count)
 	if 查找章节(actName,chapterName,stager,count)==true then
-    sleep(2000)
-    	if findStrSubMove(stager,{751,410,1144,410},true) then
-        	扫荡(5)
-        end   
-    end
+		sleep(2000)
+		if findStrSubMove(stager,{751,410,1144,410},true) then
+			扫荡(5)
+		end
+	end
 	
 	领取活动任务奖励()
 	
@@ -699,7 +699,7 @@ function 领取活动任务奖励()
 			end
 		end
 	end
-    页面截图("rw-hd")
+	页面截图("rw-hd")
 end
 function 扫荡活动最近一章(actName,chapterName,stager,count)
 	while true do
@@ -989,7 +989,13 @@ function 过剧情(count)
 			writeLogFile("未找到自动播放，点击屏幕(1071,36)")
 		end
 		设置战斗模式()
-		
+		if count ~= nil then
+			count = count -1
+			if count < 0 then
+				break
+			end
+			
+		end
 		
 		
 	end
@@ -1002,24 +1008,24 @@ function 设置战斗模式()
 	
 	if findpic("hd未自动3") then
 		--findPicAry({"hd未自动2"},true)
-        findStrSub("AUTO",true,0,570,324,711)
+		findStrSub("AUTO",true,0,570,324,711)
 		sleep(1000)
-        findpic("hd未自动3",true)
-        sleep(1000)
+		findpic("hd未自动3",true)
+		sleep(1000)
 	end
 	if findpic("hd未加速") and findpic("hd已加速") == false then
 		findpic("hd未加速",true)
 		sleep(1000)
 	end
-    findpic("hd未加速2",true)
-    sleep(1000)
-    findpic("hd未加速3",true)
-    sleep(1000)
-	findpic("hd未关闭摄像",true)
-    sleep(1000)
-    findpic("hd未关闭摄像2",true)
+	findpic("hd未加速2",true)
 	sleep(1000)
-    关闭广告页()
+	findpic("hd未加速3",true)
+	sleep(1000)
+	findpic("hd未关闭摄像",true)
+	sleep(1000)
+	findpic("hd未关闭摄像2",true)
+	sleep(1000)
+	关闭广告页()
 end
 --过战斗
 function 过战斗20240720(count)

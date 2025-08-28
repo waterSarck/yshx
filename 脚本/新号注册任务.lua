@@ -72,23 +72,26 @@ end
 function 新手任务2上古神器()
 	--一段战斗
 	writeLogFile("--------新手任务2上古神器开始--------")
-	if findstr("离开",true) or findstr("再次挑战") or findpic("xsrw上古神器",true) or findpic("zx第一章",true) then
+	if findstr("离开",true) or findstr("再次挑战") or findpic("xsrw上古神器",true) or findpic("zx第一章",true) or findpic("xsrw-1-1",false) then
 		--mytap(507,655)--点击离开
 		loading(5)
-		if findstr("出战",true) or findpic("xsrw出战",true) or findpic("xsrw上古神器",true) then
+		if findstr("出战",true) or findpic("xsrw出战",true) or findpic("xsrw上古神器",true) or findpic("xsrw-1-1",false) then
 			sleep(2000)
-			if findstr("第1章",true) or findstr("艾洛斯的觉醒",true) or  findpic("xsrw上古神器",true) then
+			if findstr("第1章",true) or findstr("艾洛斯的觉醒",true) or  findpic("xsrw上古神器",true) or findpic("xsrw-1-1",false) then
 				sleep(1000)
-				if findpic("xsrw上古神器",true) then
+				if findpic("xsrw上古神器",true) or findpic("xsrw-1-1",false) then
 					sleep(1000)
-					if findpic("xsrw作战准备",true) then
-						loading(3)
-						过剧情(1)
+					if findPicCount("xsrw作战准备",10,true) or findpic("xsrw-1-1",true) then
+						sleep(1000)
+                        findPicCount("xsrw作战准备",10,true)
+                        loading(3)
+						过剧情(10)
 						if findstr("下一关",true) or findpic("hd下一关",true) or findstr ("离开") then
 							--writeLogFile("新手任务2上古神器成功")
 							mytap(1099,657)--下一关
 							loading(3)
 							--二段战斗
+                            local whilecount = 0
 							while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
 								mytap(1107,639)--3技能
 								sleep(1000)
@@ -100,8 +103,14 @@ function 新手任务2上古神器()
 								sleep(1000)
 								mytap(890,639)--1技能
 								sleep(1000)
-								mytap(928,280)--机器人
+								mytap(824,246)--机器人1
 								sleep(1000)
+								mytap(915,261)--机器人2
+								sleep(1000)
+								whilecount = whilecount +1
+								if whilecount >20 then
+									break
+								end
 							end
 							while true do
 								if findstr("离开",true) then
@@ -118,9 +127,9 @@ function 新手任务2上古神器()
 			end
 		end
 	end
-    --启动-出战-第一章
-    
-    
+	--启动-出战-第一章
+	
+	
 	writeLogFile("--------新手任务2上古神器结束--------")
 end
 function 新手任务3召唤()
@@ -140,13 +149,20 @@ function 新手任务3召唤()
 	--返回主页
 	--loading
 	writeLogFile("--------新手任务3召唤开始--------")
-	if findstr("召唤",true) or findpic("xsrw召唤",true)then
+	local tipFlag = 0
+	if findStrSubCount("召唤1次",10,false) then
+		tipFlag = 1
+		
+	end
+	
+	if findstr("召唤",true) or findpic("xsrw召唤",true) or tipFlag>0 then
 		loading(3)
 		关闭引导页(3)
 		sleep(1000)
 		local zhcount = 0 --召唤次数
+		local wcount = 0 --循环次数
 		
-		while findstr("召唤1次",true) or findpic("zh三角",true) do
+		while findStrSubCount("召唤1次",10,true) or findpic("zh三角",true) do
 			sleep(3000)
 			if findpic("是",true) then
 				
@@ -171,6 +187,17 @@ function 新手任务3召唤()
 			if zhcount == 2 then
 				break
 			end
+			if findstr("OK",true) then
+				loading(3)
+				mytap(1216,29)--返回主页
+				loading(3)
+				break
+			end
+			wcount = wcount+1
+			writeLogFile("召唤第"..wcount.."次循环")
+			if wcount == 10 then
+				break
+			end
 		end
 		
 		if findstr("OK",true) then
@@ -184,28 +211,40 @@ function 新手任务3召唤()
 end
 function 新手任务4出战()
 	writeLogFile("--------新手任务4出战开始--------")
-	if findstr("出战",true) or findpic("xsrw出战",true) or findstr("1-2") then
+	local xs4= 0
+	if findPicCount("zd自动编队",10,false) then
+		xs4=4
+	end
+	if findPicCount("xsrw-4机器人",10,false) then
+		xs4=8
+	end
+	findPicCount("xsrw-返回主页1",10,true)
+	if findstr("出战",true) or findpic("xsrw出战",true) or findstr("1-2") or xs4>0 then
 		--if true then
 		sleep(1000)
-		if findstr("第1章",true) or findstr("艾洛斯的觉醒",true) or findstr("1-2") then
+		if findstr("第1章",true) or findstr("艾洛斯的觉醒",true) or findstr("1-2") or xs4>1 then
 			--if true then
 			sleep(2000)
-			if findstr("1-2",true)  then
+			if findstr("1-2",true) or xs4>2  then
 				--if true then
 				sleep(2000)
-				if findstr("作战准备",true) then
+				if findstr("作战准备",true) or xs4>3 then
 					--if true then
 					sleep(2000)
 					关闭引导页(5)
 					sleep(2000)
-                    if findStrSub("第1队") then
-                    	mytap(57,670)--自动编队
-                    end
-					if findstr("自动编队",true) or findpic("zd自动编队",true) then
+					if findStrSub("第1队") then
+						mytap(57,670)--自动编队
+					end
+					if findPicCount("zd自动编队",10,true) or xs4>5then
 						sleep(2000)
-						if findstr("出战",true) then
+						findPicCount("zd自动编队",10,true)
+						
+						sleep(2000)
+						if findstr("出战",true) or xs4>5 then
 							loading(3)
 							--二段战斗
+							local whilecount = 0
 							while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
 								mytap(1107,639)--3技能
 								sleep(1000)
@@ -217,8 +256,14 @@ function 新手任务4出战()
 								sleep(1000)
 								mytap(890,639)--1技能
 								sleep(1000)
-								mytap(928,280)--机器人
+								mytap(824,246)--机器人1
 								sleep(1000)
+								mytap(915,261)--机器人2
+								sleep(1000)
+								whilecount = whilecount +1
+								if whilecount >20 then
+									break
+								end
 							end
 							loading(5)
 							sleep(2000)
@@ -249,7 +294,7 @@ function 新手任务4出战()
 								end
 								
 							end
-							
+							findPicCount("xsrw-返回主页1",10,true)
 						end
 					end
 				end
@@ -271,6 +316,7 @@ function 新手任务4出战()
 					if findstr("出战",true) then
 						loading(3)
 						--二段战斗
+						local whilecount = 0
 						while (findstr("离开")==false and findstr("下一关")==false) or findpic("xsrw摄像") or findpic("hd未关闭摄像") do
 							mytap(1107,639)--3技能
 							sleep(1000)
@@ -282,8 +328,14 @@ function 新手任务4出战()
 							sleep(1000)
 							mytap(890,639)--1技能
 							sleep(1000)
-							mytap(928,280)--机器人
+							mytap(824,246)--机器人1
 							sleep(1000)
+							mytap(915,261)--机器人2
+							sleep(1000)
+							whilecount = whilecount +1
+							if whilecount >20 then
+								break
+							end
 						end
 						loading(5)
 						sleep(2000)
@@ -310,7 +362,7 @@ function 新手任务4出战()
 									loading(3)
 								end
 							end
-							
+							findPicCount("xsrw-返回主页1",10,true)
 						end
 					end
 				end
@@ -346,16 +398,37 @@ function 新手任务6密室()
 	--密室入口3，时御者亲密2
 	
 	--密室入口1，首页
-	if findstr("蜜室",true) or findpic("xsrw密室",true) or findpic("xsrw密室2",true) then
-		--if true then
-		sleep(2000)
-		if findstr("伊娜丝",true) then
+	--if findstr("蜜室",true) or findpic("xsrw密室",true) or findpic("xsrw密室2",true) then
+	--if true then
+	--sleep(2000)
+	--if findstr("伊娜丝",true) or findStrSub("伊娜丝",true) or findpic("ms-伊那丝",true) then
+	--loading(3)
+	--密室_关闭引导页(10)
+	--sleep(8000)
+	--end
+	--返回主页(3)
+	--end
+	--密室入口1，首页
+	local count1 = 5
+	while true do
+		if findPicCount("ms-伊那丝",10,true) == false then
+			sleep(2000)
+			if findstr("蜜室",true)==false and findpic("xsrw密室",true)==false and findpic("xsrw密室2",true)==false then
+				sleep(2000)
+			end
+		else
 			loading(3)
 			密室_关闭引导页(10)
 			sleep(8000)
+			break
 		end
-		--返回主页(3)
+		count1 = count1 -1
+		if count1==0 then
+			writeLogFile("查找密室章节失败")
+			break
+		end
 	end
+	
 	
 	--密室入口2，时御者亲密1
 	if findpic("xsrw密室时御者") then
@@ -1026,9 +1099,9 @@ function 新手任务(createCount)
 	for i=1,createCount do
 		writeLogFile("********第",i,"个新手任务开始********")
 		writeLogFile("--------退出登录开始--------")
-		if 是否进入主页(1)  then
+		if 是否进入主页(1) or findStrSub("sina.com")  then
 			
-			if findpic("设定",true) then
+			if findpic("设定",true) or findStrSub("sina.com")  then
 				sleep(2000)
 				if findpic("xsrw设置绑定账号",true) then
 					goto continue
