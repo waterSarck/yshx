@@ -301,7 +301,7 @@ function tx4()
 	
 	--活动抽奖(activeList.activeName,"抽奖箱",10)
 	推活动剧情本任务(activeList)
-	--推活动积分本任务(activeList)
+	推活动积分本任务(activeList)
 	--推新春活动积分本任务(activeList)
 	--推新春大死斗1任务(activeList)
 	--刷复刻活动商店任务(activeList)
@@ -328,6 +328,7 @@ function tx4()
     --领兑换码任务()
 	--刷武斗会商店任务()
 	--刷神力商店任务()
+    --刷活动积分本任务(activeList)
 end
 
 function 找到聊天窗(name)
@@ -451,6 +452,7 @@ end
 --新手任务4出战()
 --新手任务4出战()
 --新手任务7第一章(10,"zx1-3","zx第一章")
+--成品截图("abc",5)
 main()
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --
