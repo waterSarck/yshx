@@ -132,7 +132,7 @@ function 推图()
 			
 			writeLogFile("剧情H")
 			loading(5)
-			过剧情(1)
+			过剧情()
 		else
 			if findpic("hd出战",true) then --战斗标志
 				sleep(1000)
@@ -146,9 +146,9 @@ function 推图()
 					findpic("hd出战",true)
 				end
 				loading(5)
-				过战斗(1)
+				过战斗()
 			else
-				过剧情(1)
+				过剧情()
 			end
 			
 		end
@@ -194,12 +194,12 @@ function 连续推图()
 					findpic("hd出战",true)
 				end
 				loading(5)
-				过战斗(1)
+				过战斗()
 			else
 				if findstr("是",true) then
 					writeLogFile("剧情H")
 				end
-				过剧情(1)
+				过剧情()
 			end
 			while findpic("hd下一关") do
 				if findpic("ok",true) then
@@ -219,17 +219,17 @@ function 连续推图()
 				if findstr("是",true) then
 					writeLogFile("剧情H")
 					loading(5)
-					过剧情(1)
+					过剧情()
 				end
 				loading(5)
 				if findpic("hd出战",true) then --战斗标志
 					loading(5)
-					过战斗(1)
+					过战斗()
 				else
 					if findstr("是",true) then
 						writeLogFile("剧情H")
 					end
-					过剧情(1)
+					过剧情()
 				end
 			end
 			
