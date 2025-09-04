@@ -119,8 +119,8 @@ end
 function 自动编队()
 	if findstr("自动编队",true) or findPicAry({"zd自动编队"},true) then
 		writeLogFile("自动编队")
-        sleep(3000)
-        return true
+		sleep(3000)
+		return true
 	end
 	return false
 end
@@ -131,7 +131,7 @@ function 推图()
 		关闭引导页(3)
 		sleep(3000)
 		findpic("zd等级提示下一关",true)
-        findpic("zd进入关卡",true)
+		findpic("zd进入关卡",true)
 		loading(5)
 		--无体力
 		if findpic("hd回复精力") then
@@ -181,7 +181,7 @@ function 连续推图()
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) or findstr("作战准备",true) then
 		sleep(3000)
 		findpic("zd等级提示下一关",true)
-        findpic("zd进入关卡",true)
+		findpic("zd进入关卡",true)
 		loading(5)
 		
 		
@@ -224,7 +224,7 @@ function 连续推图()
 				sleep(2000)
 				
 				findpic("zd等级提示下一关",true)
-                findpic("zd进入关卡",true)
+				findpic("zd进入关卡",true)
 				sleep(3000)
 				
 				if findpic("hd回复精力") then
@@ -1013,7 +1013,11 @@ function 过剧情(count)
 			
 		end
 		
-		
+		if 是否主页() then
+			
+			return false
+			
+		end
 	end
 	loading(5)
 	if findpic("hd下一关") or findpic("hd离开") then
@@ -1120,7 +1124,11 @@ function 过战斗(count)
 		--findpic("zd返回战斗2",true)
 		
 		设置战斗模式()
-		
+		if 是否主页() then
+			
+			return false
+			
+		end
 	end
 	--loading(5)
 	if findpic("hd下一关") or findpic("hd离开") or findpic("sd离开") then

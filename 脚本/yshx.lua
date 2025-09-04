@@ -457,6 +457,7 @@ end
 --findpic("zd自动编队")
 --findpic("zd等级提示下一关",false)
 --findpic("zd进入关卡",false)
+--是否主页()
 main()
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --
