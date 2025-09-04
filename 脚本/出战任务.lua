@@ -116,6 +116,14 @@ function 推主线本文字(chapterName,stagerName,count,knType,zhangjie)
 	返回主页(5)
 	--你可以拿来做参考
 end
+function 自动编队()
+	if findstr("自动编队",true) or findPicAry({"zd自动编队"},true) then
+		writeLogFile("自动编队")
+        sleep(3000)
+        return true
+	end
+	return false
+end
 
 function 推图()
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) then
@@ -140,7 +148,7 @@ function 推图()
 				if findpic("zd进入关卡",true) or findpic("hd出战",true) or findpic("zx队伍配置警告") then
 					findpic("hd回复精力-否",true)
 					sleep(1000)
-					if findstr("自动编队",true) then
+					if 自动编队() then
 						writeLogFile("自动编队")
 					end
 					findpic("hd出战",true)
@@ -186,12 +194,17 @@ function 连续推图()
 				sleep(1000)
 				关闭引导页(3)
 				if findpic("zd进入关卡",true) or findpic("zx队伍配置警告") or findpic("hd出战",true) then
-					findpic("hd回复精力-否",true)
-					sleep(1000)
-					if findstr("自动编队",true) then
-						writeLogFile("自动编队")
+					if findpic("zx队伍配置警告") then
+						sleep(1000)
+						findpic("hd回复精力-否",true)
+						sleep(1000)
+						if 自动编队() then
+							writeLogFile("自动编队")
+						end
+						findpic("hd出战",true)
 					end
-					findpic("hd出战",true)
+					
+					
 				end
 				loading(5)
 				过战斗()
@@ -863,7 +876,7 @@ function 刷神力殊死战(lv,count)
 				
 				if findstr("出战",true) then
 					sleep(5000)
-					if findstr("自动编队",true) then
+					if 自动编队() then
 						
 						sleep(1000)
 						if findStrSub("警告",true) then
@@ -871,7 +884,7 @@ function 刷神力殊死战(lv,count)
 							findStrSub("确认",true)
 							writeLogFile("缺少角色")
 							sleep(1000)
-							findstr("自动编队",true)
+							自动编队()
 						end
 						if findstr("出战",true) then
 							sleep(1000)
@@ -1264,13 +1277,13 @@ function 扫荡主线(chapterName,stager,count)
 	返回主页(5)
 	--你可以拿来做参考
 end
-function 自动编队(cycCount)
+function 自动编队任务1(cycCount)
 	
 	while true do
 		if findpic("bd编队",true) then
 			sleep(3000)
 			关闭引导页(5)
-			if findstr("自动编队",true) then
+			if 自动编队() then
 				sleep(3000)
 				writeLogFile("自动编队成功")
 				sleep(3000)

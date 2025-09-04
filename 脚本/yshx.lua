@@ -453,7 +453,7 @@ end
 --新手任务4出战()
 --新手任务7第一章(10,"zx1-3","zx第一章")
 --成品截图("abc",5)
-
+--findpic("zd自动编队")
 main()
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --
