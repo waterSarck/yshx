@@ -444,6 +444,7 @@ end
 --findstr("道具",false) 
 --findpic("hd死斗",false)
 --连续推图()
+--推图()
 --新手任务3召唤()
 --返回主页(3)
 --新手任务2上古神器()
@@ -454,6 +455,8 @@ end
 --新手任务7第一章(10,"zx1-3","zx第一章")
 --成品截图("abc",5)
 --findpic("zd自动编队")
+--findpic("zd等级提示下一关",false)
+--findpic("zd进入关卡",false)
 main()
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --

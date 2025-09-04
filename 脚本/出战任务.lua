@@ -131,6 +131,7 @@ function 推图()
 		关闭引导页(3)
 		sleep(3000)
 		findpic("zd等级提示下一关",true)
+        findpic("zd进入关卡",true)
 		loading(5)
 		--无体力
 		if findpic("hd回复精力") then
@@ -180,6 +181,7 @@ function 连续推图()
 	if findpic("hd作战准备",true) or findpic("hd下一关",true) or findstr("作战准备",true) then
 		sleep(3000)
 		findpic("zd等级提示下一关",true)
+        findpic("zd进入关卡",true)
 		loading(5)
 		
 		
@@ -222,6 +224,7 @@ function 连续推图()
 				sleep(2000)
 				
 				findpic("zd等级提示下一关",true)
+                findpic("zd进入关卡",true)
 				sleep(3000)
 				
 				if findpic("hd回复精力") then
