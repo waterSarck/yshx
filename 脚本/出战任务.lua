@@ -1013,7 +1013,8 @@ function 过剧情(count)
 			
 		end
 		
-		if 是否主页() then
+		--异常处理
+		if 战斗是否异常() then
 			
 			return false
 			
@@ -1124,7 +1125,8 @@ function 过战斗(count)
 		--findpic("zd返回战斗2",true)
 		
 		设置战斗模式()
-		if 是否主页() then
+		--异常处理
+		if 战斗是否异常() then
 			
 			return false
 			
@@ -1312,4 +1314,12 @@ function 自动编队任务1(cycCount)
 	sleep(2000)
 	返回主页(2)
 	
+end
+function 战斗是否异常()
+	if 是否主页() or findpic("zd重新登入",true) then
+		
+		return true
+		
+	end
+	return false
 end
