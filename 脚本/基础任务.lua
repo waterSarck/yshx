@@ -372,7 +372,7 @@ function 探索(cycCount)
 	
 end
 function 升级角色(count)
-	local tmpCount
+	local tmpCount = count
 	while true do
 		if findpic("js角色选择") == false then
 			if findpic("js角色",true) == false then

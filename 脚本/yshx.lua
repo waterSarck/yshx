@@ -201,6 +201,7 @@ function thread_func2(arg)
 		处理闪退异常()
 		处理登录失败异常()
 		处理系统异常("yc预期外错误")
+        处理系统异常("zd重新登入")
 		--处理重新登录异常
 		--定时重启脚本({"14"})
 		sleep(90000)
@@ -300,7 +301,7 @@ function tx4()
 	local activeList = 查询当前活动列表()
 	
 	--活动抽奖(activeList.activeName,"抽奖箱",10)
-	推活动剧情本任务(activeList)
+	--推活动剧情本任务(activeList)
 	推活动积分本任务(activeList)
 	--推新春活动积分本任务(activeList)
 	--推新春大死斗1任务(activeList)
@@ -458,6 +459,9 @@ end
 --findpic("zd等级提示下一关",false)
 --findpic("zd重新登入",true)
 --是否主页()
+--战斗是否异常()
+--推断空塔("ts断空禁界",1,5)
+
 main()
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --

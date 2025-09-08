@@ -1046,6 +1046,8 @@ function 设置战斗模式()
 	sleep(1000)
 	findpic("hd未关闭摄像2",true)
 	sleep(1000)
+    findpic("zd进入关卡",true)
+    sleep(1000)
 	关闭广告页()
 end
 --过战斗
@@ -1316,7 +1318,7 @@ function 自动编队任务1(cycCount)
 	
 end
 function 战斗是否异常()
-	if 是否主页() or findpic("zd重新登入",true) then
+	if 是否主页() or findpic("zd重新登入",true) or (findpic("zd资料已更新",true) and findpic("jg确认",true)) then
 		
 		return true
 		
