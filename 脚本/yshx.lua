@@ -25,7 +25,7 @@ function main()
 	writeLogFile("-------启动APP开始")
 	runApp("com.pinkcore.heros")
 	--showControlBar(false)
-	setControlBarPosNew(0,0.1)
+	setControlBarPosNew(0,0.2)
 	--sleep(10000)
 	sleep(30000)
 	启动监控线程()
@@ -302,15 +302,14 @@ function tx4()
 	
 	--活动抽奖(activeList.activeName,"抽奖箱",10)
 	--推活动剧情本任务(activeList)
-	推活动积分本任务(activeList)
+	--推活动积分本任务(activeList)
 	--推新春活动积分本任务(activeList)
 	--推新春大死斗1任务(activeList)
 	--刷复刻活动商店任务(activeList)
 	--推小死斗任务(activeList)
 	--推复刻活动死斗任务(activeList)
 	--
-	--推新春大死斗1任务(activeList)
-	--推新春大死斗2任务(activeList)
+
 	--推活动积分本任务(activeList)
 	--刷活动商店任务(activeList)
 	--扫荡复刻活动任务(activeList)
@@ -330,138 +329,31 @@ function tx4()
 	--刷武斗会商店任务()
 	--刷神力商店任务()
     --刷活动积分本任务(activeList)
+    
+    --领兑换码任务()
+    --领取邮件任务()
+    --探索任务()
+    --吃体力药任务()
+    --购买黄券任务()
+    --清理仓库任务()
+    --推复刻活动死斗任务(activeList)
+    --推活动剧情本任务(activeList)
+    --推活动积分本任务(activeList)
+    --推大死斗1任务(activeList)
+    --推大死斗2任务(activeList)
+    --刷活动积分本任务(activeList)
+    --刷破阵本任务()
+    刷武斗会任务()
 end
 
-function 找到聊天窗(name)
-	if findStrSub(name,true) then
-		sleep(2000)
-		if findpic("qq-发送",true) then
-			setIme(true)
-			inputText(msg,true)
-			sleep(2000)
-			if findStrSub("发送",true) then
-			end
-		end
-		
-	end
-end
 
-function 发送QQ消息(msg)
-	if findpic("qq-发送",true) then
-		setIme(true)
-		inputText(msg,true)
-		sleep(2000)
-		if findpic("qq-发送按钮",true) then
-			print("发送消息：",msg)
-		end
-	end
-end
 
-function 发送sg消息(msg)
-	
-	findpic("sg-root取消",true)
-	sleep(2000)
-	findpic("sg-hh小猪",true)
-	sleep(2000)
-	if findpic("sg-发送",true) then
-		setIme(true)
-		inputText(msg,true)
-		sleep(2000)
-		if findpic("sg-发送按钮",true) then
-			print("发送消息：",msg)
-		end
-	end
-end
-function 数据推送()
-	--runApp("com.pinkcore.heros")
-	--登录QQ()
-	--找到聊天窗口并发送消息("肝帝","go")
-	--发送QQ消息("12321")
-	--while true do
-	local end_date = os.date("%m-%d", os.time())
-	local begin_date = utf8.right(获取昨天日期(),5)
-	local nowH = os.date("%H", os.time())
-	if math.tointeger(nowH) >11 then
-		begin_date = os.date("%m-%d", os.time())
-		end_date = utf8.right(获取明天日期(),5)
-	end
-	
-	local vxlist = {"A01","A02","A03","A04","A05","A06","A07","ACT01","ACT02","ACT03","ACT04","ACT05","ACT06","ACT07","ACT08","ACT09","ACT10","ACT11","ACT12"}
-	for key, values in pairs(vxlist) do
-		print("vxlist:key", key)
-		print("vxlist:values", values)
-		local actMsgNot = 查询每日任务完成情况(values,0)
-		local actMsgYes = 查询每日任务完成情况(values,1)
-		local sendMsg = values.."每日任务统计:\n"..begin_date.."至"..end_date.."\n".."已完成：\n"..actMsgYes.."未完成：\n"..actMsgNot
-		sleep(30000)
-		发送sg消息(sendMsg)
-	end
-	sleep(7000000)
-	restartScript()
-	--end
-	
-end
-
-function tx1()
-	local modeConfDB = 查询设备配置()
-	local actionlist_name = modeConfDB[1].actionlist_name
-	local actNameList = 查询任务列表(actionlist_name)
-	local logPath = "/mnt/sdcard/Pictures/log/"
-	local actType = modeConfDB[1].action_type
-	local activeList = 查询当前活动列表()
-	
-	print("actNameList", actNameList)
-	for key, values in pairs(actNameList) do
-		print("key", key)
-		print("values", values)
-		for j, actName in ipairs(values) do
-			print("actName", actName)
-		end
-	end
-	--print("actType", actType)
-	--print("actionlist_name", actionlist_name)
-	--
-	--print("activeList", activeList)
-end
---发送sg消息("111")
---数据推送()
---领取邮件任务()
---findpic("hd-syxl-jq3",false)
---关闭广告页()
+--findstrtest("是",false)
+--setControlBarPosNew(0,0.2)
 --tx4()
---新手任务2上古神器()
---查询当前活动列表()
---tx4()
---findStrReturn(0,570,324,711,50,0,0.1,0.4,2.7)
---findOCRParm(0,570,324,711,"AUTO",50,0,0.1,0.4,2.7)
---findstrtest("TO",false,0,570,324,711,50,0,0.1,0.4,2.7)
---findstrtest("TO")
---findStrSub("AUTO",false,0,570,324,711,50,0,0.1,0.4,2.7)
---findStrSub("抽奖箱",true,1010,475,1270,590)
---过剧情(1)
---过战斗(count)
---返回主页(5)
---进入仓库道具页(5)
---findstr("道具",false) 
---findpic("hd死斗",false)
---连续推图()
---推图()
---新手任务3召唤()
---返回主页(3)
---新手任务2上古神器()
---关闭引导页(5)
---findStrSub("第1队")
---新手任务4出战()
---新手任务4出战()
---新手任务7第一章(10,"zx1-3","zx第一章")
---成品截图("abc",5)
---findpic("zd自动编队")
---findpic("zd等级提示下一关",false)
---findpic("zd重新登入",true)
---是否主页()
---战斗是否异常()
---推断空塔("ts断空禁界",1,5)
-
+--loading(3)
+--findpic("zy破阵决心",false)
+--关闭引导页(3)
 main()
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --

@@ -137,7 +137,7 @@ function 推图()
 		if findpic("hd回复精力") then
 			writeLogFile("暂无精力战斗")
 			findpic("hd回复精力-否",true)
-		elseif findstr("是",true) then
+		elseif findstr("是",true) or findpic("zh是",true) then
 			
 			writeLogFile("剧情H")
 			loading(5)
@@ -196,6 +196,7 @@ function 连续推图()
 				sleep(1000)
 				关闭引导页(3)
 				if findpic("zd进入关卡",true) or findpic("zx队伍配置警告") or findpic("hd出战",true) then
+					sleep(2000)
 					if findpic("zx队伍配置警告") then
 						sleep(1000)
 						findpic("hd回复精力-否",true)
@@ -211,7 +212,7 @@ function 连续推图()
 				loading(5)
 				过战斗()
 			else
-				if findstr("是",true) then
+				if findstr("是",true) or  findpic("zh是",true) then
 					writeLogFile("剧情H")
 				end
 				过剧情()
@@ -263,7 +264,8 @@ function 推活动本(actName,chapterName,stagerName,count)
 	print(stagerName[1])
 	while true do
 		if findPicAry(stagerName,true)== false  then
-			if findpic(chapterName,true) == false then
+			
+			if findPicMove(chapterName,{399,516,399,306},true) == false then
 				if findpic(actName,true) == false then
 					if findpic("活动",true) == false then
 						if findpic("出战",true) == false then
@@ -275,7 +277,7 @@ function 推活动本(actName,chapterName,stagerName,count)
 					sleep(3000)
 					关闭引导页()
 					sleep(1000)
-					if findpic(chapterName) == false then
+					if findPicMove(chapterName,{399,516,399,306},false) == false then
 						writeLogFile("账号未解锁该功能")
 						break
 					end
@@ -438,7 +440,7 @@ function 推活动本大(actName,chapterName,stagerName,count)
 	--你可以拿来做参考
 end
 --活动名称，章节名称
-function 扫荡资源(actName,chapterName,count)
+function 扫荡资源(actName,chapterName,zytype,count)
 	print("********扫荡资源",actName,chapterName,"开始")
 	while true do
 		if findpic("ok",true) == false then
@@ -446,8 +448,11 @@ function 扫荡资源(actName,chapterName,count)
 				if findpic("扫荡",true) == false then
 					if findPicAry(chapterName,true) == false then
 						if findPicMove(actName,{1144,410,751,410},true) == false then
-							if findpic("zy资源",true) == false then
-								if findpic("出战",true) == false then
+							if findpic(zytype,true) == false then
+								if findpic("zy资源",true) == false then
+									if findpic("出战",true) == false then
+										sleep(2000)
+									end
 									sleep(2000)
 								end
 								sleep(2000)
@@ -1046,8 +1051,8 @@ function 设置战斗模式()
 	sleep(1000)
 	findpic("hd未关闭摄像2",true)
 	sleep(1000)
-    findpic("zd进入关卡",true)
-    sleep(1000)
+	findpic("zd进入关卡",true)
+	sleep(1000)
 	关闭广告页()
 end
 --过战斗

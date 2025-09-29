@@ -83,7 +83,7 @@ function 吃体力药(count,type,eatNum)
 				end
 				
 			end
-			if findpic("是",true) == false then
+			if findpic("ok",true) == false then
 				--if findpic("精力已回复") == false then
 				if findpic("增加体力",true) == false then
 					mytap(1064,33)

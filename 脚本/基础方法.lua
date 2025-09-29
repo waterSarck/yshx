@@ -5,7 +5,7 @@ function loading(count)
 	local stopCount = 0
 	while true do
 		count = count -1
-		if findstr("载入中") or findstr("禁入中") or findpic("zrz黑屏")  then
+		if findStrSub("载入中") or findStrSub("禁入中") or findpic("zrz黑屏") or findpic("载入中") or findpic("载入中2") or findpic("载入中3") then
 			print("载入中...")
 			sleep(10000)
 			count = count +1

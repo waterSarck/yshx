@@ -187,9 +187,15 @@ function 查询当前活动列表()
 		activeList.activeJFName = hd[1].active_jf_name
 		activeList.activeSD1Name = hd[1].active_sd1_name
 		activeList.activeSD2Name = hd[1].active_sd2_name
-        activeList.activeSDXName = hd[1].active_sdx_name
-        local activeJqList = splitStr(hd[1].active_jq_list,"|")
-        activeList.activeHdJqList = activeJqList
+		activeList.activeSDXName = hd[1].active_sdx_name
+		local activeJqList = splitStr(hd[1].active_jq_list,"|")
+		activeList.activeHdJqList = activeJqList
+		local activeSD1List = splitStr(hd[1].active_sd1_list,"|")
+		activeList.activeHdSD1List = activeSD1List
+		local activeSD2List = splitStr(hd[1].active_sd2_list,"|")
+		activeList.activeHdSD2List = activeSD1List
+		local activeJfList = splitStr(hd[1].active_jf_list,"|")
+		activeList.activeHdJfList = activeJfList
 		print("activeList",activeList)
 	end
 	if #fk >= 1 then
@@ -197,8 +203,10 @@ function 查询当前活动列表()
 		activeList.activeFKJQName = fk[1].active_jq_name
 		activeList.activeFKJFName = fk[1].active_jf_name
 		activeList.activeFKSDName = fk[1].active_fksd_name
-        local activeJqList = splitStr(fk[1].active_jq_list,"|")
-        activeList.activeFkJqList = activeJqList
+		local activeJqList = splitStr(fk[1].active_jq_list,"|")
+		activeList.activeFkJqList = activeJqList
+		local activeJfList = splitStr(hd[1].active_jf_list,"|")
+		activeList.activeHdJfList = activeJfList
 		print("activeList",activeList)
 	end
 	return activeList

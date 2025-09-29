@@ -262,3 +262,73 @@ function 模拟器每日任务完成情况()
 local actStr = ""
 
 end
+
+function 找到聊天窗(name)
+	if findStrSub(name,true) then
+		sleep(2000)
+		if findpic("qq-发送",true) then
+			setIme(true)
+			inputText(msg,true)
+			sleep(2000)
+			if findStrSub("发送",true) then
+			end
+		end
+		
+	end
+end
+
+function 发送QQ消息(msg)
+	if findpic("qq-发送",true) then
+		setIme(true)
+		inputText(msg,true)
+		sleep(2000)
+		if findpic("qq-发送按钮",true) then
+			print("发送消息：",msg)
+		end
+	end
+end
+
+function 发送sg消息(msg)
+	
+	findpic("sg-root取消",true)
+	sleep(2000)
+	findpic("sg-hh小猪",true)
+	sleep(2000)
+	if findpic("sg-发送",true) then
+		setIme(true)
+		inputText(msg,true)
+		sleep(2000)
+		if findpic("sg-发送按钮",true) then
+			print("发送消息：",msg)
+		end
+	end
+end
+function 数据推送()
+	--runApp("com.pinkcore.heros")
+	--登录QQ()
+	--找到聊天窗口并发送消息("肝帝","go")
+	--发送QQ消息("12321")
+	--while true do
+	local end_date = os.date("%m-%d", os.time())
+	local begin_date = utf8.right(获取昨天日期(),5)
+	local nowH = os.date("%H", os.time())
+	if math.tointeger(nowH) >11 then
+		begin_date = os.date("%m-%d", os.time())
+		end_date = utf8.right(获取明天日期(),5)
+	end
+	
+	local vxlist = {"A01","A02","A03","A04","A05","A06","A07","ACT01","ACT02","ACT03","ACT04","ACT05","ACT06","ACT07","ACT08","ACT09","ACT10","ACT11","ACT12"}
+	for key, values in pairs(vxlist) do
+		print("vxlist:key", key)
+		print("vxlist:values", values)
+		local actMsgNot = 查询每日任务完成情况(values,0)
+		local actMsgYes = 查询每日任务完成情况(values,1)
+		local sendMsg = values.."每日任务统计:\n"..begin_date.."至"..end_date.."\n".."已完成：\n"..actMsgYes.."未完成：\n"..actMsgNot
+		sleep(30000)
+		发送sg消息(sendMsg)
+	end
+	sleep(7000000)
+	restartScript()
+	--end
+	
+end

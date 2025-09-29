@@ -47,7 +47,7 @@ end
 
 function 领兑换码任务()
 	
-	if 是否进入主页(1) and 是否周几({"1","2","3","6","0","7"})  then
+	if 是否进入主页(1) and 是否周几({"1","2","4","6","0","7"})  then
 		writeLogFile("*******开始处理任务（领兑换码）")
 		领兑换码()
 	end
@@ -172,8 +172,10 @@ function 推活动积分本任务(activeList)
 		--推活动本("hd女神的收获祭","hd神启祭典",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
 		--推活动本("hd巧克力梦工厂","hd知觉解放",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"bsn-EX1","hdEX2","hdEX3"},10)
-		推活动本(activeList.activeName,activeList.activeJFName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7"},10)
-		
+		--推活动本(activeList.activeName,activeList.activeJFName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7"},10)
+		推活动本(activeList.activeName,activeList.activeJFName,activeList.activeHdJfList,10)
+        		
+        
 	end
 end
 
@@ -220,8 +222,9 @@ function 推复刻活动积分本任务(activeList)
 		--推活动本("hd女神的收获祭","hd神启祭典",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
 		--推活动本("hd巧克力梦工厂","hd知觉解放",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
 		--推活动本("hd深月巡礼","hd圣地异变",{"bsn-EX1","hdEX2","hdEX3"},10)
-		推活动本(activeList.activeFKName,activeList.activeFKJFName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7"},10)
-		
+		--推活动本(activeList.activeFKName,activeList.activeFKJFName,{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5","hdstager6","hdstager7"},10)
+		推活动本(activeList.activeFKName,activeList.activeFKJFName,activeList.activeHdJfList,10)
+        		
 	end
 end
 
@@ -313,9 +316,9 @@ function 推大死斗1任务(activeList)
 		--推活动本("hd王冠之重","hd暴乱之章",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
 		--扫荡活动("hd王冠之重","hd暴乱之章","hdstager5",15)
 		--推活动本("hd桃源奇遇","hd死战之章1",{"hd-d-EX1","hd-d-EX2","hd-d-EX3","hd-d-EX1Hard","hd-d-EX2Hard","hd-d-EX3Hard"},10)
-		推活动本(activeList.activeName,activeList.activeSD1Name,
-		{"hd-d-EX1","hd-d-EX2","hd-d-EX3","hd-d-EX1Hard","hd-d-EX2Hard","hd-d-EX3Hard"},10)
-		
+		--推活动本(activeList.activeName,activeList.activeSD1Name,{"hd-d-EX1","hd-d-EX2","hd-d-EX3","hd-d-EX1Hard","hd-d-EX2Hard","hd-d-EX3Hard"},10)
+		推活动本(activeList.activeName,activeList.activeSD1Name,activeList.activeHdSD1List,10)
+        		
 	end
 	
 end
@@ -329,9 +332,10 @@ function 推大死斗2任务(activeList)
 		--推活动本("hd王冠之重","hd暴乱之章",{"hdstager1","hdstager2","hdstager3","hdstager4","hdstager5"},10)
 		--扫荡活动("hd王冠之重","hd暴乱之章","hdstager5",15)
 		--swipe(266,323,266,523,1000)
-		推活动本大(activeList.activeName,activeList.activeSD2Name,
-		{"hd-d-EX1VeryHard","hd-d-EX2VeryHard","hd-d-EX3VeryHard","hd-d-EX1Nightmare","hd-d-EX2Nightmare","hd-d-EX3Nightmare"},10)
-	end
+		--推活动本大(activeList.activeName,activeList.activeSD2Name,{"hd-d-EX1VeryHard","hd-d-EX2VeryHard","hd-d-EX3VeryHard","hd-d-EX1Nightmare","hd-d-EX2Nightmare","hd-d-EX3Nightmare"},10)
+	    推活动本大(activeList.activeName,activeList.activeSD2Name,activeList.activeHdSD2List,10)
+    
+    end
 	
 end
 
@@ -340,7 +344,7 @@ function 刷金币本任务()
 	if  是否进入主页(1)    then
 		writeLogFile("*******开始处理任务13（刷金币本）")
 		
-		扫荡资源("zy淘金富途",{"zy第一层","zy第二层","zy第三层","zy淘金4层","zy淘金5层"},15)
+		扫荡资源("zy淘金富途",{"zy第一层","zy第二层","zy第三层","zy淘金4层","zy淘金5层"},"zy一般",15)
 		
 	end
 	
@@ -362,7 +366,7 @@ function 刷破阵本任务()
 	if 是否进入主页(1) and 是否周几({"1","3","5","7"})  then
 		writeLogFile("*******开始处理任务（刷破阵本）")
 		
-		扫荡资源("zy破阵决心",{"zy第一层","zy第二层","zy第三层","zy第四层"},10)
+		扫荡资源("zy破阵决心",{"zy第一层","zy第二层","zy第三层","zy第四层"},"zy突破",10)
 		
 	end
 	
@@ -373,7 +377,7 @@ function 刷坚壁本任务()
 	if 是否进入主页(1) and 是否周几({"1","4","6"})  then
 		writeLogFile("*******开始处理任务（刷坚壁本）")
 		
-		扫荡资源("zy坚壁意志",{"zy第一层","zy第二层","zy第三层","zy第四层"},10)
+		扫荡资源("zy坚壁意志",{"zy第一层","zy第二层","zy第三层","zy第四层"},"zy突破",10)
 		
 	end
 	
@@ -785,7 +789,7 @@ end
 
 function 购买黄券任务()
 	
-	if 是否进入主页(1) and 是否周几({"1","6"}) then
+	if 是否进入主页(1) and 是否周几({"1","4"}) then
 		writeLogFile("*******开始处理任务（刷每月商店）")
 		刷周期商店("每月商店",{"sd-zq-每月羁绊契约"},10)
 	end
