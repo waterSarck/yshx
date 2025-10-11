@@ -1040,6 +1040,7 @@ function µÇÂ¼(Account,Password)
 		if findstr("·Ã¿ÍµÇÈë",false,429,709,567,759) then
 			mytap(211,599)
 		end
+        sleep(3000)
 		if findstr("Í¼ÏñÑéÖ¤") == true then
 			if findPicAndClick("µÇÂ¼ÓÊÏä",true,150,10)==true then
 				sleep(1000)

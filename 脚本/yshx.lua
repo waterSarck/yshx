@@ -151,6 +151,7 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 			local actFlag = false
 			local fail_action = ""
 			local success_action = ""
+			--goto test
 			for j, actName in ipairs(actNameList) do
 				print("  Index:", j, "Value:", actName)
 				
@@ -170,7 +171,7 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 				end
 				
 			end
-			
+			::test::
 			
 			writeLogFile("-------任务处理结束")
 			
@@ -201,7 +202,7 @@ function thread_func2(arg)
 		处理闪退异常()
 		处理登录失败异常()
 		处理系统异常("yc预期外错误")
-        处理系统异常("zd重新登入")
+		处理系统异常("zd重新登入")
 		--处理重新登录异常
 		--定时重启脚本({"14"})
 		sleep(90000)
@@ -309,7 +310,7 @@ function tx4()
 	--推小死斗任务(activeList)
 	--推复刻活动死斗任务(activeList)
 	--
-
+	
 	--推活动积分本任务(activeList)
 	--刷活动商店任务(activeList)
 	--扫荡复刻活动任务(activeList)
@@ -317,44 +318,53 @@ function tx4()
 	--活动抽奖任务(activeList)
 	--推大死斗1任务(activeList)
 	--推大死斗2任务(activeList)
-    --成品截图("123",6)
-    --推复刻活动剧情本任务(activeList)
-    --推复刻活动积分本任务(activeList)
+	--成品截图("123",6)
+	--推复刻活动剧情本任务(activeList)
+	--推复刻活动积分本任务(activeList)
 	--推主线第三章任务()
 	--推主线第四章任务()
 	--推主线第五章任务()
 	--推主线第六章任务()
 	--刷活动最近一章任务(activeList)
-    --领兑换码任务()
+	--领兑换码任务()
 	--刷武斗会商店任务()
 	--刷神力商店任务()
-    --刷活动积分本任务(activeList)
+	--刷活动积分本任务(activeList)
+	
+	--领兑换码任务()
+	--领取邮件任务()
+	--探索任务()
+	--吃体力药任务()
+	--购买黄券任务()
+	--清理仓库任务()
+	--推复刻活动死斗任务(activeList)
+	--推活动剧情本任务(activeList)
+	--推活动积分本任务(activeList)
+	--推大死斗1任务(activeList)
+	--推大死斗2任务(activeList)
+	--刷活动积分本任务(activeList)
+	--刷破阵本任务()
+	--刷武斗会任务()
+    --local proStr = ""
+	--writeLogFile("-------资源统计开始")
+	--local strst = 资源统计任务(userName,"start","start","start")
+	--proStr = proStrAdd(proStr,strst)
+	--成品截图任务(userName)
+	--writeLogFile("-------资源统计结束")
     
-    --领兑换码任务()
-    --领取邮件任务()
-    --探索任务()
-    --吃体力药任务()
-    --购买黄券任务()
-    --清理仓库任务()
-    --推复刻活动死斗任务(activeList)
-    --推活动剧情本任务(activeList)
-    --推活动积分本任务(activeList)
-    --推大死斗1任务(activeList)
-    --推大死斗2任务(activeList)
-    --刷活动积分本任务(activeList)
-    --刷破阵本任务()
-    刷武斗会任务()
+    退出登录(6)
 end
-
 
 
 --findstrtest("是",false)
 --setControlBarPosNew(0,0.2)
 --tx4()
 --loading(3)
---findpic("zy破阵决心",false)
+--findpic("登入",false)
 --关闭引导页(3)
 main()
+--findstr("图像验证")
+--findPicAndClick("登录邮箱",true,150,10)
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
 --
 --过战斗(6)
