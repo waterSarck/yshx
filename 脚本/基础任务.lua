@@ -1042,12 +1042,12 @@ function µÇÂ¼(Account,Password)
 		end
         sleep(3000)
 		if findstr("Í¼ÏñÑéÖ¤") == true then
-			if findPicAndClick("µÇÂ¼ÓÊÏä",true,150,10)==true then
+			if findPicAndClick("µÇÂ¼ÓÊÏä",true,150,10)==true or findStrSub("ÓÊÏäµØÖ·",true) then
 				sleep(1000)
 				setIme(true)
 				inputText(Account,true)
 				sleep(1000)
-				if findPicAndClick("µÇÂ¼ÃÜÂë",true)==true then
+				if findPicAndClick("µÇÂ¼ÃÜÂë",true)==true or findStrSub("ÃÜÂë",true) then
 					sleep(1000)
 					inputText(Password,true)
 					sleep(1000)
@@ -1058,7 +1058,7 @@ function µÇÂ¼(Account,Password)
 						while findpic("dlÎ´µÇÈë",true) do
 							sleep(3000)
 						end
-						if findpic("µÇÈë",true) == true then
+						if findpic("µÇÈë",true) == true or findStrSub("µÇÈë",true) then
 							sleep(2000)
 							--ÌîĞ´ĞÅÏ¢¼ì²é ĞÅÏäÎ´Ìî¡¢ÃÜÂëÎ´Ìî¡¢»¬¿éÎ´µ½Î»
 							while true do
@@ -1073,24 +1073,31 @@ function µÇÂ¼(Account,Password)
 									move(345,1026,315,374,400)
 									sleep(1000)
 									findpic("µÇÈë",true)
+                                    findStrSub("µÇÈë",true)
 								elseif loginFlag==2 then
 									findPicAndClick("µÇÂ¼ÓÊÏä",true,150,10)
 									sleep(1000)
+                                    findStrSub("ÓÊÏäµØÖ·",true)
+                                    sleep(1000)
 									inputText(Account,true)
 									sleep(1000)
 									sleep(1000)
 									move(345,1026,315,374,400)
 									sleep(1000)
 									findpic("µÇÈë",true)
+                                    findStrSub("µÇÈë",true)
 								elseif loginFlag==3 then
 									findPicAndClick("µÇÂ¼ÃÜÂë",true)
 									sleep(1000)
+                                    findStrSub("ÃÜÂë",true)
+                                    sleep(1000)
 									inputText(Password,true)
 									sleep(1000)
 									sleep(1000)
 									move(345,1026,315,374,400)
 									sleep(1000)
 									findpic("µÇÈë",true)
+                                    findStrSub("µÇÈë",true)
 								elseif loginFlag==4 then
 									findstr("·µ»Ø",true)
 									sleep(1000)
@@ -1100,6 +1107,7 @@ function µÇÂ¼(Account,Password)
 									move(345,1026,315,374,400)
 									sleep(1000)
 									findpic("µÇÈë",true)
+                                    findStrSub("µÇÈë",true)
 								end
 							end
 							while findpic("dlÎ´µÇÈë",true) do

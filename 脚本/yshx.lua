@@ -151,7 +151,10 @@ function 任务处理(userInfoFilePath,startNo,actNameList,activeList)
 			local actFlag = false
 			local fail_action = ""
 			local success_action = ""
-			--goto test
+            local modeT = getModel()
+            if modeT == "ACT" then
+				goto test
+            end
 			for j, actName in ipairs(actNameList) do
 				print("  Index:", j, "Value:", actName)
 				
@@ -338,7 +341,7 @@ function tx4()
 	--购买黄券任务()
 	--清理仓库任务()
 	--推复刻活动死斗任务(activeList)
-	--推活动剧情本任务(activeList)
+	推活动剧情本任务(activeList)
 	--推活动积分本任务(activeList)
 	--推大死斗1任务(activeList)
 	--推大死斗2任务(activeList)
@@ -352,7 +355,7 @@ function tx4()
 	--成品截图任务(userName)
 	--writeLogFile("-------资源统计结束")
     
-    退出登录(6)
+    --退出登录(6)
 end
 
 
@@ -360,8 +363,10 @@ end
 --setControlBarPosNew(0,0.2)
 --tx4()
 --loading(3)
---findpic("登入",false)
+--findpic("hd-ylzt-jq1",false)
+     
 --关闭引导页(3)
+--是否进入主页(5)
 main()
 --findstr("图像验证")
 --findPicAndClick("登录邮箱",true,150,10)

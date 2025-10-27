@@ -14,7 +14,7 @@ end
 function 是否进入主页(count)
 	while true do
 		count = count -1
-		if isInPage(10,"首页","出战","img",0,0.9) and isInPage(5,"广告关闭","广告关闭","img",0,0.9)==false then
+		if (isInPage(10,"首页","出战","img",0,0.9) or isInPage(10,"首页","出战2","img",0,0.9)) and isInPage(5,"广告关闭","广告关闭","img",0,0.9)==false then
 			print("进入主页成功")
 			return true
 		end
