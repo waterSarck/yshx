@@ -361,13 +361,13 @@ end
 
 --findstrtest("是",false)
 --setControlBarPosNew(0,0.2)
---tx4()
+tx4()
 --loading(3)
---findpic("hd-ylzt-jq1",false)
+--findpic("是",false)
      
 --关闭引导页(3)
 --是否进入主页(5)
-main()
+--main()
 --findstr("图像验证")
 --findPicAndClick("登录邮箱",true,150,10)
 --snapShot("/mnt/shared/Pictures/PIC/1122.png",0,570,324,711)
